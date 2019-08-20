@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Recipeze</string>
+    <string name="navigation_drawer_opern">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_settings">Einstellungen</string>
+    <string name="navigation_profile">Mein Profil</string>
+    <string name="navigation_note">Meine Notizen</string>
+    <string name="navigation_shopping_list">Meine Einkaufsliste</string>
+
 </resources>
