@@ -7,5 +7,21 @@
     <string name="navigation_profile">Mein Profil</string>
     <string name="navigation_note">Meine Notizen</string>
     <string name="navigation_shopping_list">Meine Einkaufsliste</string>
+    <string name="save_button">Speichern</string>
+
+
+    <string name="preferences">Verändern Sie Ihre App</string>
+
+    <string name="preference_color">Farben</string>
+    <string name="radio_group1_color_1">Gelb</string>
+    <string name="radio_group1_color_2">Grün</string>
+    <string name="radio_group1_color_3">Blau</string>
+    <string name="radio_group1_color_4">Schwarz</string>
+
+    <string name="preference_character_size">Schriftgröße</string>
+    <string name="radio_group2_size_1">Klein</string>
+    <string name="radio_group2_size_2">Mittel</string>
+    <string name="radio_group2_size_3">Groß</string>
+
 
 </resources>
