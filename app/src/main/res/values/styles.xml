@@ -17,8 +17,15 @@
 
     <style name="AppThemeBlue" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorBlue1</item>
-        <item name="colorPrimaryDark">@color/colorBlue1</item>
-        <item name="colorAccent">@color/colorBlue1</item>
+        <item name="colorPrimaryDark">@color/colorBlue2</item>
+        <item name="colorAccent">@color/colorBlue3</item>
     </style>
+
+    <style name="AppThemeBlack" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorBlack1</item>
+        <item name="colorPrimaryDark">@color/colorBlack2</item>
+        <item name="colorAccent">@color/colorBlack3</item>
+    </style>
+
 
 </resources>

@@ -1,16 +1,29 @@
 package com.example.myapplication;
 
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+
 
 public class SettingsActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
-    private Toolbar toolbar;
+
+    SharedPreferences sharedPreferences, app_preferences;
+    SharedPreferences.Editor editor;
+    ThemeChooser themeChooser;
+    Constant constant;
+
+    int appTheme;
+    int themeColor;
+    int appColor;
 
     private RadioGroup ColorSettings;
     private RadioGroup CharSizeSettings;
@@ -21,30 +34,93 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
     private RadioButton Color2;
     private RadioButton Color3;
     private RadioButton Color4;
-
     private Button buttonSave;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        appColor = app_preferences.getInt("color", 0);
+        appTheme = app_preferences.getInt("theme", 0);
+        themeColor = appColor;
+
+        if (themeColor == 0) {
+            setTheme(Constant.theme);
+        } else if (appTheme == 0) {
+            setTheme(Constant.theme);
+        } else {
+            setTheme(appTheme);
+        }
+
         setContentView(R.layout.activity_settings);
         setupToolbar();
+        themeChooser = new ThemeChooser();
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = sharedPreferences.edit();
         findViews();
-
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                save();
+
+                themeChooser.setColorTheme();
+
+                int color = ColorSettings.getCheckedRadioButtonId();
+                int charSize = CharSizeSettings.getCheckedRadioButtonId();
+                if (color == Color1.getId()) {
+                    Constant.color = 0xFFE6CD38;
+                    themeChooser.setColorTheme();
+                    editor.putInt("color", Constant.color);
+                    editor.putInt("theme", Constant.theme);
+                    editor.commit();
+                    showToast("Farbe 'Gelb' gespeichert");
+
+                } else if (color == Color2.getId()) {
+                    Constant.color = 0xFF1CCA33;
+                    themeChooser.setColorTheme();
+                    editor.putInt("color", Constant.color);
+                    editor.putInt("theme", Constant.theme);
+                    editor.commit();
+                    showToast("Farbe 'Grün' gespeichert");
+
+
+                } else if (color == Color3.getId()) {
+                    Constant.color = 0xFF13ABC2;
+                    themeChooser.setColorTheme();
+                    editor.putInt("color", Constant.color);
+                    editor.putInt("theme", Constant.theme);
+                    editor.commit();
+                    showToast("Farbe 'Blau' gespeichert");
+
+                }else if (color == Color4.getId()) {
+                    Constant.color = 0xFF3D3939;
+                    themeChooser.setColorTheme();
+                    editor.putInt("color", Constant.color);
+                    editor.putInt("theme", Constant.theme);
+                    editor.commit();
+                    showToast("Farbe 'Schwarz' gespeichert");
+                }
+                Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+
             }
         });
 
     }
 
+    public void showToast(String message){
+        Toast toast = Toast.makeText(this,message,Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+
+
     public void setupToolbar() {
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        final Toolbar toolbar = findViewById(R.id.settings_toolbar);
+        toolbar.setTitle("Einstellungen");
+
     }
 
     public void findViews() {
@@ -62,50 +138,8 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        if (group == ColorSettings && checkedId == ColorSettings.getId()) {
-            changeColor(checkedId);
 
-        } else if (group == CharSizeSettings && checkedId == CharSizeSettings.getId()) {
-            changeCharSize(checkedId);
-
-        }
-    }
-
-    private void changeCharSize(int checkedid) {
-        if (checkedid == CharSize1.getId()) {
-
-
-        } else if (checkedid == CharSize2.getId()) {
-
-
-        } else if (checkedid == CharSize3.getId()) {
-
-        }
-    }
-
-
-    private void changeColor(int checkedid) {
-        if (checkedid == Color1.getId()) {
-            setTheme(R.style.AppThemeYellow);
-            setContentView(R.layout.activity_main);
-            setContentView(R.layout.activity_settings);
-
-        } else if (checkedid == Color2.getId()) {
-            setTheme(R.style.AppThemeGreen);
-            setContentView(R.layout.activity_main);
-            setContentView(R.layout.activity_settings);
-
-        } else if (checkedid == Color3.getId()) {
-
-
-        } else if (checkedid == Color4.getId()) {
-
-        }
 
     }
 
-
-    private void save() {
-        //hier soll der Button die Einstellungen speichern
-    }
 }
