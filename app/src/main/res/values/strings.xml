@@ -8,6 +8,8 @@
     <string name="navigation_note">Meine Notizen</string>
     <string name="navigation_shopping_list">Meine Einkaufsliste</string>
     <string name="save_button">Speichern</string>
+    <string name="add_button">+</string>
+    <string name="foodsharing_button">(foodsharing)</string>
 
 
     <string name="preferences">Verändern Sie Ihre App</string>
