@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     int themeColor;
     int appColor;
 
-//dies ist ein test
+//dies ist ein test.....
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
