@@ -16,6 +16,7 @@ import android.view.MenuItem;
 
 
 // Quelle für runden Button https://stackoverflow.com/questions/9884202/custom-circle-button
+//Quelle für hintergrund bzw rahmen des info feldes: https://stackoverflow.com/questions/3496269/how-do-i-put-a-border-around-an-android-textview
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Toolbar toolbar;
