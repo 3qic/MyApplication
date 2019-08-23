@@ -7,7 +7,6 @@ public class Constant implements Serializable {
 
 
 
-
     public  static int color = 0xFFE6CD38;
     public  static int theme = R.style.AppThemeYellow;
 

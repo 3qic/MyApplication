@@ -7,7 +7,7 @@
 <TextView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:text="Profil mit ein paar Übersichten"
+    android:text="Hier kann man einfach einen langen Notiztext schreiben und ganz leicht wieder ändern (vlt ein ganz großer Edittext)"
 
     android:textSize="30sp"/>
 

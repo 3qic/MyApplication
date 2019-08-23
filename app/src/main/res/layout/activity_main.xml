@@ -14,12 +14,22 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="100dp"
+        android:hint="Suche"
         android:inputType="text|textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/textview_background"/>
 
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity"
+        android:layout_marginTop="180dp"
+        app:layout_constraintTop_toBottomOf="@+id/InfoText"
+        >
 
     <Button
         android:id="@+id/add_button"
@@ -27,23 +37,29 @@
         android:layout_height="70dp"
         android:background="@drawable/round_button"
         android:gravity="center_vertical|center_horizontal"
+        android:layout_marginLeft="280dp"
         android:text="@string/add_button"
+        android:textSize="40sp"
+        android:textAlignment="center"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/foodsharing_button"/>
+        app:layout_constraintStart_toEndOf="@+id/foodsharing_button" />
 
     <Button
         android:id="@+id/foodsharing_button"
+
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:background="@drawable/round_button"
         android:gravity="center_vertical|center_horizontal"
+        android:layout_marginLeft="50dp"
         android:text="@string/foodsharing_button"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/add_button"/>
+</android.support.design.widget.CoordinatorLayout>
 
 
     <TextView
@@ -52,6 +68,7 @@
         android:textSize="20sp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="20dp"
+        android:id="@+id/InfoText"
         android:text="Info: weiß noch nicht was wir hier reinschreiben"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

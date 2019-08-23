@@ -24,6 +24,7 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
     int appTheme;
     int themeColor;
     int appColor;
+    int charSize;
 
     private RadioGroup ColorSettings;
     private RadioGroup CharSizeSettings;
@@ -68,6 +69,7 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
 
                 int color = ColorSettings.getCheckedRadioButtonId();
                 int charSize = CharSizeSettings.getCheckedRadioButtonId();
+
                 if (color == Color1.getId()) {
                     Constant.color = 0xFFE6CD38;
                     themeChooser.setColorTheme();
@@ -101,6 +103,9 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
                     editor.commit();
                     showToast("Farbe 'Schwarz' gespeichert");
                 }
+
+
+
                 Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
