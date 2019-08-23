@@ -27,6 +27,12 @@
         <item name="colorAccent">@color/colorBlack3</item>
     </style>
 
+    <style name="AppThemeRed" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorRed1</item>
+        <item name="colorPrimaryDark">@color/colorRed2</item>
+        <item name="colorAccent">@color/colorRed3</item>
+    </style>
+
 
     <style name="DefaultTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:colorBackground">@color/defaultOrange</item>

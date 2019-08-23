@@ -19,7 +19,7 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
     SharedPreferences sharedPreferences, app_preferences;
     SharedPreferences.Editor editor;
     ThemeChooser themeChooser;
-    Constant constant;
+
 
     int appTheme;
     int themeColor;
@@ -35,6 +35,7 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
     private RadioButton Color2;
     private RadioButton Color3;
     private RadioButton Color4;
+    private RadioButton Color5;
     private Button buttonSave;
 
 
@@ -102,8 +103,15 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
                     editor.putInt("theme", Constant.theme);
                     editor.commit();
                     showToast("Farbe 'Schwarz' gespeichert");
-                }
 
+                }else if (color == Color5.getId()) {
+                    Constant.color = 0xFFE72A2A;
+                    themeChooser.setColorTheme();
+                    editor.putInt("color", Constant.color);
+                    editor.putInt("theme", Constant.theme);
+                    editor.commit();
+                    showToast("Farbe 'Rot' gespeichert");
+                }
 
 
                 Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
@@ -139,6 +147,7 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
         Color2 = findViewById(R.id.radio_button_color_2);
         Color3 = findViewById(R.id.radio_button_color_3);
         Color4 = findViewById(R.id.radio_button_color_4);
+        Color5 = findViewById(R.id.radio_button_color_5);
     }
 
     @Override

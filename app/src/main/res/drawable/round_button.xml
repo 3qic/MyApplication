@@ -5,6 +5,7 @@
         <solid android:color="#ffaa88"/>
     </shape>
 </item>
+
 <item android:state_pressed="true">
     <shape android:shape="oval">
         <solid android:color="#c20586"/>

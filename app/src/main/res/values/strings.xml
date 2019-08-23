@@ -10,8 +10,8 @@
     <string name="navigation_favourite_dish">Meine Lieblingsrezepte</string>
     <string name="save_button">Speichern</string>
     <string name="add_button">+</string>
-    <string name="foodsharing_button">(foodsharing)</string>
 
+    <string name="foodsharing_button">food sharing</string>
 
     <string name="preferences">Verändern Sie Ihre App</string>
 
@@ -20,11 +20,16 @@
     <string name="radio_group1_color_2">Grün</string>
     <string name="radio_group1_color_3">Blau</string>
     <string name="radio_group1_color_4">Schwarz</string>
+    <string name="radio_group1_color_5">Rot</string>
 
     <string name="preference_character_size">Schriftgröße</string>
     <string name="radio_group2_size_1">Klein</string>
     <string name="radio_group2_size_2">Mittel</string>
     <string name="radio_group2_size_3">Groß</string>
+
+    <string name="preference_layout">Design</string>
+    <string name="radio_group3_layout1">Layout 1</string>
+    <string name="radio_group3_layout2">Layout 2</string>
 
 
 </resources>

@@ -22,6 +22,12 @@ public class ThemeChooser {
                 case 0xFF3D3939:
                     Constant.theme = R.style.AppThemeBlack;
                     break;
+
+                case 0xFFE72A2A:
+                    Constant.theme = R.style.AppThemeRed;
+                    break;
+
+
             }
 
     }

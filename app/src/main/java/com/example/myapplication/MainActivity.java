@@ -22,8 +22,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar;
     private DrawerLayout drawer;
     private NavigationView navigationView;
-    Constant constant;
-    SharedPreferences.Editor editor;
+
     SharedPreferences app_preferences;
     int appTheme;
     int themeColor;
