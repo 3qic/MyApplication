@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar;
     private DrawerLayout drawer;
     private NavigationView navigationView;
-    private Button button;
 
     SharedPreferences app_preferences;
     int appTheme;
@@ -55,15 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setupToolbar();
         setupDrawer();
         setupNavigationView();
-        button = findViewById(R.id.foodsharing_button);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                switchToRecipe();
-            }
-        });
+        setupListener();
 
     }
 
@@ -126,10 +117,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
+
+
+
+
     public void switchToRecipe (){
         Intent i = new Intent(this, RecipeOverviewActivity.class);
         startActivity(i);
 
+
+
     }
+
+    private void setupListener(){
+
+        Button button = findViewById(R.id.foodsharing_button);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                switchToRecipe();
+            }
+        });
+    }
+
+
 
 }
