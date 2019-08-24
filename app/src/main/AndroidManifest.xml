@@ -20,6 +20,8 @@
         <activity android:name=".SettingsActivity"
             android:label="@string/activity_settings">
         </activity>
+        <activity android:name=".RecipeOverviewActivity" />
+        <activity android:name=".RecipeActivity" />
 
     </application>
 
