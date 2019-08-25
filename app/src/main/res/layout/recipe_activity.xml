@@ -1,27 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:background="@color/defaultBackground">
+    tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <ImageView
-        android:id="@+id/imageOfDish"
-        android:layout_width="match_parent"
-        android:layout_height="140dp" />
-
-    <TextView
-        android:id="@+id/ingredients"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00:00"
+        android:id="@+id/test"
+        android:textSize="50dp"
+        android:layout_centerHorizontal="true"
         />
 
-</LinearLayout>
+
+    <Button
+        android:text="Start"
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/test"
+        android:layout_alignParentRight="true" />
+
+
+    <EditText
+        android:id="@+id/input"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_below="@+id/test"
+        android:hint="How many Minutes?"
+        android:inputType="number"
+        android:layout_toLeftOf="@+id/start"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/textView"
+        android:scrollbars = "vertical"
+        android:layout_below="@+id/input"
+        android:text="Hier das Rezept aus der Datenbank"
+        android:textSize="46dp"
+        />
+
+</RelativeLayout>
+
+
+
+

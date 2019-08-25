@@ -10,6 +10,7 @@
     <string name="navigation_favourite_dish">Meine Lieblingsrezepte</string>
     <string name="save_button">Speichern</string>
     <string name="add_button">+</string>
+    <string name="standard">00:00</string>
 
     <string name="foodsharing_button">food sharing</string>
 

@@ -1,14 +1,12 @@
 package com.example.myapplication;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
-import android.widget.Toast;
 
 public class RecipeOverviewActivity extends AppCompatActivity {
 
@@ -22,7 +20,9 @@ public class RecipeOverviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recipe_overview_activity);
         setupLayout();
+        fillItems("Essen duh","40 Minuten", "Stuff");
         setupListener();
+
     }
 
     private void setupLayout(){
@@ -34,7 +34,7 @@ public class RecipeOverviewActivity extends AppCompatActivity {
 
     }
 
-    public void switchToRecipe (){
+    private void switchToRecipe (){
         Intent i = new Intent(this, RecipeActivity.class);
         startActivity(i);
 
@@ -53,5 +53,11 @@ public class RecipeOverviewActivity extends AppCompatActivity {
         });
     }
 
+    private void fillItems(String name, String cookTime, String ing) {
+        nameOfRecipe.setText(name);
+        time.setText(cookTime);
+        ingredients.setText(ing);
+
+    }
 
 }
