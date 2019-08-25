@@ -1,15 +1,17 @@
 package com.example.myapplication;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
 // https://www.youtube.com/watch?v=zmjfAcnosS0
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.os.CountDownTimer;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-
 
 
 public class RecipeActivity extends AppCompatActivity {
@@ -21,6 +23,8 @@ public class RecipeActivity extends AppCompatActivity {
     private long timeLeftMilli;
     private boolean isRunning = false;
     private EditText editText;
+    private TimerNotification timerNotification;
+    private Intent backToRecipe;
 
 
     @Override
@@ -34,11 +38,14 @@ public class RecipeActivity extends AppCompatActivity {
 
 
     private void setupItems() {
-        textView = findViewById(R.id.test);
+        textView = findViewById(R.id.timer);
         startStopButton = findViewById(R.id.start);
         editText = findViewById(R.id.input);
         scroll = findViewById(R.id.textView);
         scroll.setMovementMethod((new ScrollingMovementMethod()));
+        timerNotification = new TimerNotification(this);
+        backToRecipe = new Intent(RecipeActivity.this, RecipeActivity.class);
+
     }
 
     private void setupListener() {
@@ -76,21 +83,24 @@ public class RecipeActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-
+                timerDone(getString(R.string.timerDoneNotification), backToRecipe);
             }
         }.start();
 
-        startStopButton.setText("Stop");
+        startStopButton.setText(R.string.stop);
         isRunning = true;
     }
 
 
     public void stopTimer() {
         countDownTimer.cancel();
-        startStopButton.setText("Start");
+        startStopButton.setText(R.string.start);
         isRunning = false;
     }
 
+
+
+    //https://bestecode.com/question/3950481-countdown-timer-wird-mit-00-00-00-formatiert-zeig
     public void updateTimer() {
         String output;
         long seconds = timeLeftMilli / 1000;
@@ -121,7 +131,10 @@ public class RecipeActivity extends AppCompatActivity {
     }
 
 
-
+    public void timerDone(String title, Intent i) {
+        NotificationCompat.Builder nBuilder = timerNotification.getChannelNotification(title, i);
+        timerNotification.getNotificationManager().notify(1, nBuilder.build());
+    }
 
 
 }

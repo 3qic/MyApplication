@@ -33,5 +33,11 @@
     <string name="radio_group3_layout2">Layout 2</string>
     <string name="cookNowButton">Jetzt kochen</string>
 
+    <string name="timerDoneNotification">Time is up! Go back to the recipe.</string>
+    <string name="timerDefault">00:00:00</string>
+    <string name="start">Start</string>
+    <string name="hint">How many Minutes?</string>
+    <string name="stop">Stop</string>
+
 
 </resources>
