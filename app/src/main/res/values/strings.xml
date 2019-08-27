@@ -3,11 +3,12 @@
     <string name="activity_settings">Einstellungen</string>
     <string name="navigation_drawer_opern">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="navigation_settings">Einstellungen</string>
+    <string name="navigation_home">Start</string>
     <string name="navigation_profile">Mein Profil</string>
     <string name="navigation_note">Meine Notizen</string>
     <string name="navigation_shopping_list">Meine Einkaufsliste</string>
     <string name="navigation_favourite_dish">Meine Lieblingsrezepte</string>
+    <string name="navigation_settings">Einstellungen</string>
     <string name="save_button">Speichern</string>
     <string name="add_button">+</string>
     <string name="standard">00:00</string>

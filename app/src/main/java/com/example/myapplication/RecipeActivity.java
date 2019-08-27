@@ -1,10 +1,12 @@
 package com.example.myapplication;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 // https://www.youtube.com/watch?v=zmjfAcnosS0
 import android.os.CountDownTimer;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -65,6 +67,9 @@ public class RecipeActivity extends AppCompatActivity {
             int input = Integer.parseInt(editText.getText().toString());
             timeLeftMilli = input * 60000;
             editText.setText("");
+            InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+
         }
 
         countDownTimer = new CountDownTimer(timeLeftMilli, 1000) {

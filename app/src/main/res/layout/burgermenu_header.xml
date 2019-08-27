@@ -5,7 +5,7 @@
     android:layout_gravity="bottom"
     android:background="?colorPrimary"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="15dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="was auch immer"
+        android:text="Menü"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
