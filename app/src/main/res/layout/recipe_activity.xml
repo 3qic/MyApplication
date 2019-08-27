@@ -9,19 +9,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="00:00:00"
-        android:id="@+id/test"
+        android:text="@string/timerDefault"
+        android:id="@+id/timer"
         android:textSize="50dp"
         android:layout_centerHorizontal="true"
         />
 
 
     <Button
-        android:text="Start"
+        android:text="@string/start"
         android:id="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/test"
+        android:layout_below="@+id/timer"
         android:layout_alignParentRight="true" />
 
 
@@ -29,8 +29,8 @@
         android:id="@+id/input"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
-        android:layout_below="@+id/test"
-        android:hint="How many Minutes?"
+        android:layout_below="@+id/timer"
+        android:hint="@string/hint"
         android:inputType="number"
         android:layout_toLeftOf="@+id/start"/>
 
