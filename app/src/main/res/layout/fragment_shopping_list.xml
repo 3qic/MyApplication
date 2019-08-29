@@ -4,14 +4,46 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-<TextView
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="350dp"
+        android:id="@+id/Shopping_List_List_View">
+    </ListView>
+
+
+<EditText
+    android:id="@+id/Enter_Item_Name"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="Hier kommt eine ListView hin, die man stets mit neuen Einträgen ergänzen kann"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="400dp"
+    android:hint="Artikel aufschreiben ..."
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    />
 
-    android:textSize="30sp"/>
+    <EditText
+        android:id="@+id/Enter_Item_Amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:hint="Anzahl ..."
+        android:inputType="number"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
 
-
+    <Button
+        android:id="@+id/Add_Shopping_Item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Artikel hinzufügen"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="500dp"
+        android:backgroundTint="?colorPrimary"/>
 
 
 </RelativeLayout>
