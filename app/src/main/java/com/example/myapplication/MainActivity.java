@@ -154,6 +154,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         addbutton.setVisibility(View.INVISIBLE);
     }
 
-
-
 }
