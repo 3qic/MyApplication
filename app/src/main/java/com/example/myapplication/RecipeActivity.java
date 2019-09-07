@@ -4,7 +4,9 @@ import android.content.Context;
 // https://www.youtube.com/watch?v=zmjfAcnosS0
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.CountDownTimer;
@@ -17,7 +19,10 @@ import android.widget.TextView;
 
 
 public class RecipeActivity extends AppCompatActivity {
-
+    SharedPreferences app_preferences;
+    int appTheme;
+    int themeColor;
+    int appColor;
 
     private TextView textView, scroll;
     private Button startStopButton;
@@ -32,6 +37,19 @@ public class RecipeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        appColor = app_preferences.getInt("color", 0);
+        appTheme = app_preferences.getInt("theme", 0);
+        themeColor = appColor;
+
+
+        if (themeColor == 0) {
+            setTheme(Constant.theme);
+        } else if (appTheme == 0) {
+            setTheme(Constant.theme);
+        } else {
+            setTheme(appTheme);
+        }
         setContentView(R.layout.recipe_activity);
         setupItems();
         setupListener();

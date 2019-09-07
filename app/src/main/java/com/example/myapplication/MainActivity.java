@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 
 // Quelle für runden Button https://stackoverflow.com/questions/9884202/custom-circle-button
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private Button foodbutton;
     private Button addbutton;
+    private Button loginbutton;
+    private EditText search;
 
     SharedPreferences app_preferences;
     int appTheme;
@@ -68,6 +71,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         foodbutton = findViewById(R.id.foodsharing_button);
         addbutton = findViewById(R.id.add_button);
         drawer = findViewById(R.id.drawer_layout);
+        loginbutton = findViewById(R.id.login_button);
+        search = findViewById(R.id.searchrecipe_edittext);
+
     }
 
     public void setupDrawer() {
@@ -91,13 +97,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
+                Intent profileIntent = new Intent(this, LogInActivity.class);
+                startActivity(profileIntent);
                 hideButtons();
                 break;
 
             case R.id.nav_settings:
-                Intent intent = new Intent(this, SettingsActivity.class);
-                startActivity(intent);
+                Intent settingsIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingsIntent);
                 break;
 
             case R.id.nav_shopping_list:
@@ -140,18 +147,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void setupListener(){
 
-        Button button = findViewById(R.id.foodsharing_button);
-        button.setOnClickListener(new View.OnClickListener() {
+       foodbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switchToRecipe();
             }
         });
+
+       loginbutton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               switchToSearchbar();
+           }
+       });
+
+       search.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               switchToSearchbar();
+           }
+       });
     }
 
-    public void hideButtons(){
+    private void hideButtons(){
         foodbutton.setVisibility(View.INVISIBLE);
         addbutton.setVisibility(View.INVISIBLE);
+        loginbutton.setVisibility(View.INVISIBLE);
+    }
+
+    private void switchToLogin(){
+        Intent intent = new Intent(this, LogInActivity.class);
+        startActivity(intent);
+    }
+
+    private void  switchToSearchbar(){
+        Intent intent = new Intent(this, SearchActivity.class);
+        startActivity(intent);
     }
 
 }

@@ -41,9 +41,20 @@
         android:text="Artikel hinzufügen"
         android:gravity="center"
         android:textColor="@color/white"
-        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="500dp"
         android:backgroundTint="?colorPrimary"/>
+
+    <Button
+        android:id="@+id/Savebutton_Shopping_List"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Liste speichern"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="500dp"
+        android:backgroundTint="?colorPrimary" />
 
 
 </RelativeLayout>
