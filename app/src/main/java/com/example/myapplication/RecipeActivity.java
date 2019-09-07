@@ -68,7 +68,7 @@ public class RecipeActivity extends AppCompatActivity {
             startTimer();
         }
     }
-
+    //https://stackoverflow.com/questions/2342620/how-to-hide-keyboard-after-typing-in-edittext-in-android
     public void startTimer() {
         if(!isEditEmpty(editText)) {
             int input = Integer.parseInt(editText.getText().toString());
