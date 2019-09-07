@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar;
     private DrawerLayout drawer;
     private NavigationView navigationView;
+    private Button foodbutton;
+    private Button addbutton;
 
     SharedPreferences app_preferences;
     int appTheme;
@@ -53,20 +55,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         setContentView(R.layout.activity_main);
 
-        setupToolbar();
+        findViews();
+        setSupportActionBar(toolbar);
         setupDrawer();
         setupNavigationView();
         setupListener();
 
     }
 
-    public void setupToolbar() {
+    public void findViews() {
         toolbar = findViewById(R.id.main_toolbar);
-        setSupportActionBar(toolbar);
+        foodbutton = findViewById(R.id.foodsharing_button);
+        addbutton = findViewById(R.id.add_button);
+        drawer = findViewById(R.id.drawer_layout);
     }
 
     public void setupDrawer() {
-        drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_opern, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
@@ -83,10 +87,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_note:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NoteFragment()).commit();
+                hideButtons();
                 break;
 
             case R.id.nav_profile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
+                hideButtons();
                 break;
 
             case R.id.nav_settings:
@@ -96,10 +102,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_shopping_list:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ShoppingListFragment()).commit();
+                hideButtons();
                 break;
 
             case R.id.nav_favourite_dish:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FavouriteDishFragment()).commit();
+                hideButtons();
                 break;
         }
 
@@ -109,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
+
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -123,33 +132,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-
-
-
-
-
-
     public void switchToRecipe (){
         Intent i = new Intent(this, RecipeOverviewActivity.class);
         startActivity(i);
-
-
 
     }
 
     private void setupListener(){
 
         Button button = findViewById(R.id.foodsharing_button);
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 switchToRecipe();
             }
         });
     }
 
-
+    public void hideButtons(){
+        foodbutton.setVisibility(View.INVISIBLE);
+        addbutton.setVisibility(View.INVISIBLE);
+    }
 
 }
