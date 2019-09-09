@@ -3,11 +3,15 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.media.audiofx.Equalizer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -21,10 +25,12 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
     ThemeChooser themeChooser;
 
 
+
     int appTheme;
     int themeColor;
     int appColor;
-    int charSize;
+    float fontSize;
+
 
     private RadioGroup ColorSettings;
     private RadioGroup CharSizeSettings;
@@ -47,6 +53,7 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
         appTheme = app_preferences.getInt("theme", 0);
         themeColor = appColor;
 
+
         if (themeColor == 0) {
             setTheme(Constant.theme);
         } else if (appTheme == 0) {
@@ -54,6 +61,7 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
         } else {
             setTheme(appTheme);
         }
+
 
         setContentView(R.layout.activity_settings);
         setupToolbar();
@@ -68,8 +76,32 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
 
                 themeChooser.setColorTheme();
 
+
+
                 int color = ColorSettings.getCheckedRadioButtonId();
                 int charSize = CharSizeSettings.getCheckedRadioButtonId();
+
+                if (charSize == CharSize1.getId()){
+                    Constant.fontSize = Constant.fontSizeSmall;
+                    editor.putFloat("fontSize", Constant.fontSize);
+                    editor.commit();
+                    showToast("Schriftgröße 'klein' gespeichert");
+                }
+
+                else if (charSize == CharSize2.getId()){
+                    Constant.fontSize = Constant.fontSizeMedium;
+                    editor.putFloat("fontSize", Constant.fontSize);
+                    editor.commit();
+                    showToast("Schriftgröße 'mittel' gespeichert");
+                }
+
+                else if (charSize == CharSize3.getId()){
+                    Constant.fontSize = Constant.fontSizeLarge;
+                    editor.putFloat("fontSize", Constant.fontSize);
+                    editor.commit();
+                    showToast("Schriftgröße 'groß' gespeichert");
+
+                }
 
                 if (color == Color1.getId()) {
                     Constant.color = 0xFFE6CD38;
@@ -112,8 +144,8 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
                     editor.commit();
                     showToast("Farbe 'Rot' gespeichert");
                 }
-
-
+                fontSize = app_preferences.getFloat("fontSize",0);
+                changeFont(getResources().getConfiguration(), fontSize);
                 Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
@@ -153,7 +185,15 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-
+    }
+    //https://stackoverflow.com/questions/12704216/how-to-change-the-font-size-in-a-whole-application-programmatically-android
+    private void changeFont(Configuration configuration, float scale){
+        configuration.fontScale = scale;
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
+        wm.getDefaultDisplay().getMetrics(metrics);
+        metrics.scaledDensity = configuration.fontScale * metrics.density;
+        getBaseContext().getResources().updateConfiguration(configuration, metrics);
     }
 
 }

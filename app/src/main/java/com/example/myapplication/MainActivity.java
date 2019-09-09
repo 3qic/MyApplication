@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 // Quelle für runden Button https://stackoverflow.com/questions/9884202/custom-circle-button
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Button addbutton;
     private Button loginbutton;
     private EditText search;
+    private TextView example;
 
     SharedPreferences app_preferences;
     int appTheme;
@@ -74,7 +76,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         loginbutton = findViewById(R.id.login_button);
         search = findViewById(R.id.searchrecipe_edittext);
 
+
     }
+
 
     public void setupDrawer() {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_opern, R.string.navigation_drawer_close);
@@ -151,15 +155,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 switchToRecipe();
+
             }
         });
 
        loginbutton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               switchToSearchbar();
-           }
-       });
+            @Override
+            public void onClick(View v) {
+                switchToSearchbar();
+            }
+        });
+
+
 
        search.setOnClickListener(new View.OnClickListener() {
            @Override

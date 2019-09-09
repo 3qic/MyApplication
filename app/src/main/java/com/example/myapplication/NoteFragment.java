@@ -23,7 +23,7 @@ public class NoteFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable final Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_notes, container, false);
 
         Notepad = v.findViewById(R.id.EditTextNote);
@@ -41,6 +41,7 @@ public class NoteFragment extends Fragment {
                 textnote = Notepad.getText().toString();
                 editor.putString("Text", textnote);
                 editor.commit();
+
 
                 Toast.makeText(getContext(), "Notiz gespeichert", Toast.LENGTH_SHORT).show();
             }
