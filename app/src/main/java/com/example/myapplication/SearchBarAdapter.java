@@ -31,7 +31,8 @@ public class SearchBarAdapter extends RecyclerView.Adapter<SearchBarAdapter.MyVi
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
         myViewHolder.name.setText(list.get(i).getName());
         myViewHolder.desc.setText(list.get(i).getKurzbeschreibung());
-        myViewHolder.id.setText(list.get(i).getRezeptID());
+        myViewHolder.ingredts.setText(list.get(i).getZutaten());
+
     }
 
     @Override
@@ -40,13 +41,14 @@ public class SearchBarAdapter extends RecyclerView.Adapter<SearchBarAdapter.MyVi
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView name, desc, id;
+
+        TextView name, desc, ingredts;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.Name);
             desc = itemView.findViewById(R.id.Kurzbeschreibung);
-            id = itemView.findViewById(R.id.RezeptID);
+            ingredts = itemView.findViewById(R.id.Zutaten);
 
         }
     }

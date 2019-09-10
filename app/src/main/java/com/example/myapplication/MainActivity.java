@@ -30,7 +30,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private Button foodbutton;
     private Button addbutton;
-    private Button search;
+    private Button searchForName;
+    private Button searchForIngrediant;
+
 
     SharedPreferences app_preferences;
     int appTheme;
@@ -71,7 +73,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         foodbutton = findViewById(R.id.foodsharing_button);
         addbutton = findViewById(R.id.add_button);
         drawer = findViewById(R.id.drawer_layout);
-        search = findViewById(R.id.searchrecipe_button);
+        searchForName = findViewById(R.id.searchrecipe_button);
+        searchForIngrediant = findViewById(R.id.searchforingredients_button);
 
 
     }
@@ -129,8 +132,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+            this.moveTaskToBack(true);
         }
     }
 
@@ -156,20 +158,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-
-
-       search.setOnClickListener(new View.OnClickListener() {
+       searchForName.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                switchToSearchbar();
            }
        });
+
+       addbutton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddRecipeFragment()).commit();
+                hideButtons();
+           }
+       });
+
     }
 
     private void hideButtons(){
         foodbutton.setVisibility(View.INVISIBLE);
         addbutton.setVisibility(View.INVISIBLE);
-        search.setVisibility(View.INVISIBLE);
+        searchForName.setVisibility(View.INVISIBLE);
+        searchForIngrediant.setVisibility(View.INVISIBLE);
     }
 
     private void switchToLogin(){
