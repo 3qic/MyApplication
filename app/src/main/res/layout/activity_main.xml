@@ -8,20 +8,31 @@
     android:background="@color/defaultBackground">
 
 
-    <EditText
-        android:id="@+id/searchrecipe_edittext"
+    <Button
+        android:id="@+id/searchrecipe_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="100dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/textview_background"
-        android:hint="Rezeptsuche"
-        android:inputType="text"
-        android:textColor="?colorPrimaryDark"
-        android:textSize="25sp"
+        android:text="Rezepte nach Sitchworten suchen"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="10dp"/>
+
+    <Button
+        android:id="@+id/searchforingredients_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:layout_marginRight="20dp"
+        android:text="Rezepte nach Zutaten suchen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchrecipe_button" />
 
 
     <Button
@@ -36,23 +47,9 @@
         android:text="@string/foodsharing_button"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/login_button"
+        app:layout_constraintEnd_toStartOf="@+id/add_button"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="?colorPrimary"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="Suche..."
-        android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/add_button"
-        app:layout_constraintStart_toEndOf="@id/foodsharing_button" />
 
     <Button
         android:id="@+id/add_button"
@@ -69,7 +66,7 @@
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/login_button" />
+        app:layout_constraintStart_toEndOf="@+id/foodsharing_button" />
 
 
     <TextView

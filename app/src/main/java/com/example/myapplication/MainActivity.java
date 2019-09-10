@@ -30,9 +30,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private Button foodbutton;
     private Button addbutton;
-    private Button loginbutton;
-    private EditText search;
-    private TextView example;
+    private Button search;
 
     SharedPreferences app_preferences;
     int appTheme;
@@ -73,8 +71,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         foodbutton = findViewById(R.id.foodsharing_button);
         addbutton = findViewById(R.id.add_button);
         drawer = findViewById(R.id.drawer_layout);
-        loginbutton = findViewById(R.id.login_button);
-        search = findViewById(R.id.searchrecipe_edittext);
+        search = findViewById(R.id.searchrecipe_button);
 
 
     }
@@ -159,13 +156,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-       loginbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switchToSearchbar();
-            }
-        });
-
 
 
        search.setOnClickListener(new View.OnClickListener() {
@@ -179,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void hideButtons(){
         foodbutton.setVisibility(View.INVISIBLE);
         addbutton.setVisibility(View.INVISIBLE);
-        loginbutton.setVisibility(View.INVISIBLE);
+        search.setVisibility(View.INVISIBLE);
     }
 
     private void switchToLogin(){

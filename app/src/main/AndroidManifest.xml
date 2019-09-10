@@ -25,13 +25,16 @@
         <activity android:name=".RecipeOverviewActivity" />
         <activity android:name=".RecipeActivity" />
 
-
         <activity
             android:name=".LogInActivity"
             android:label="Anmelden" />
+
         <activity
             android:name=".SearchActivity"
             android:label="Suche" />
+        <activity
+            android:name=".RegisterActivity"
+            android:label="Registrieren"/>
 
     </application>
 
