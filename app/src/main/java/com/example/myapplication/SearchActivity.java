@@ -51,6 +51,7 @@ public class SearchActivity extends AppCompatActivity {
 
         setContentView(R.layout.search_activity_layout);
         reference = FirebaseDatabase.getInstance().getReference().child("recipe-database").child("Rezepte");
+
         findViews();
     }
 

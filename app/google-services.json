@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "532917475205",
-    "firebase_url": "https://recipeze-a7c40.firebaseio.com",
-    "project_id": "recipeze-a7c40",
-    "storage_bucket": "recipeze-a7c40.appspot.com"
+    "project_number": "502889079944",
+    "firebase_url": "https://recipeze-database.firebaseio.com",
+    "project_id": "recipeze-database",
+    "storage_bucket": "recipeze-database.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:532917475205:android:2bf4fbcd89ef650a2956ec",
+        "mobilesdk_app_id": "1:502889079944:android:13c3c6a65bcbec53",
         "android_client_info": {
           "package_name": "com.example.myapplication"
         }
       },
       "oauth_client": [
         {
-          "client_id": "532917475205-1b11p5qvc98igemmjdf2ttqqgh5mcrnf.apps.googleusercontent.com",
+          "client_id": "502889079944-d5k0c6kq9q0vmrrv4vc275dqlqqqm2ne.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "2bfccf5f546f94d012bb5c9f57791020ac6cbe11"
+          }
+        },
+        {
+          "client_id": "502889079944-cdfjao72brpsb0hb8s8ldba19ji50erl.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC_F9c3zRaoJSD_oTmdPar3o6MAxrwB3Cs"
+          "current_key": "AIzaSyBkEC-TqY_e37h4zXq7t5WUwgYeosQPRW8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "532917475205-1b11p5qvc98igemmjdf2ttqqgh5mcrnf.apps.googleusercontent.com",
+              "client_id": "502889079944-cdfjao72brpsb0hb8s8ldba19ji50erl.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
