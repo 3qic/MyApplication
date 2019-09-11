@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/Shopping_List_Item_Name"
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:layout_weight="50"
         android:gravity="center"
 
