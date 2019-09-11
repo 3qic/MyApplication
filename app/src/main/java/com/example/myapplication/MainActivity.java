@@ -2,12 +2,9 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.preference.PreferenceManager;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,8 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+
+import java.util.Random;
 
 
 // Quelle für runden Button https://stackoverflow.com/questions/9884202/custom-circle-button
@@ -28,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar;
     private DrawerLayout drawer;
     private NavigationView navigationView;
-    private Button foodbutton;
+    private Button randomButton;
     private Button addbutton;
     private Button searchForName;
     private Button searchForIngrediant;
@@ -70,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void findViews() {
         toolbar = findViewById(R.id.main_toolbar);
-        foodbutton = findViewById(R.id.foodsharing_button);
+        randomButton = findViewById(R.id.foodsharing_button);
         addbutton = findViewById(R.id.add_button);
         drawer = findViewById(R.id.drawer_layout);
         searchForName = findViewById(R.id.searchrecipe_button);
@@ -150,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void setupListener(){
 
-       foodbutton.setOnClickListener(new View.OnClickListener() {
+       randomButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switchToRecipe();
@@ -176,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void hideButtons(){
-        foodbutton.setVisibility(View.INVISIBLE);
+        randomButton.setVisibility(View.INVISIBLE);
         addbutton.setVisibility(View.INVISIBLE);
         searchForName.setVisibility(View.INVISIBLE);
         searchForIngrediant.setVisibility(View.INVISIBLE);
@@ -190,6 +187,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void  switchToSearchbar(){
         Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);
+    }
+
+
+    private void getRandomRecipe(){
+        int max = Recipe.getId();
+        int min = Constant.idMin;
+        int randomId = new Random().nextInt((max - min) + 1) + min;
+        //es fehlt nur noch ein adapter der über die id ein rezept zurück gibt
     }
 
 }

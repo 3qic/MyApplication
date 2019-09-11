@@ -6,10 +6,15 @@ public class Recipe {
     private String Kurzbeschreibung;
     private String Anleitung;
     private String Zutaten;
+    private static int id = 0;
 
 
     public Recipe(){
+        id++;
+    }
 
+    public static int getId(){
+        return id;
     }
 
     public String getName() {
