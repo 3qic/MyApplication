@@ -5,19 +5,37 @@
     android:orientation="vertical">
 
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/login_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_loginavatar"
+        android:layout_gravity="center"
+        />
+
     <EditText
-        android:layout_marginTop="30dp"
+        android:id="@+id/signIn_userEmail"
+        android:ems="10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
         android:hint="E-Mail Adresse"/>
 
     <EditText
-        android:layout_marginTop="20dp"
+        android:id="@+id/signIn_userPw"
+        android:ems="10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
         android:hint="Passwort"/>
+
 
     <Button
         android:id="@+id/signIn_button"
@@ -25,15 +43,18 @@
         android:layout_height="wrap_content"
         android:text="Anmelden"
         android:layout_marginTop="20dp"
-        android:backgroundTint="?colorPrimary"/>
+        android:textColor="@color/white"
+        android:background="@drawable/button_rounded"/>
 
     <Button
         android:id="@+id/register_button"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Registrieren"
-        android:backgroundTint="?colorPrimary"/>
+        android:textColor="@color/white"
+        android:background="@drawable/button_rounded"/>
+
 
 
 </LinearLayout>

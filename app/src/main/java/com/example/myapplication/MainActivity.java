@@ -15,6 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.Random;
 
 
@@ -29,7 +32,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Button addbutton;
     private Button searchForName;
     private Button searchForIngrediant;
-
+    private FirebaseAuth firebaseAuth;
+    private int user = 0;
 
     SharedPreferences app_preferences;
     int appTheme;
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        firebaseAuth = FirebaseAuth.getInstance();
         app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
         appColor = app_preferences.getInt("color", 0);
         appTheme = app_preferences.getInt("theme", 0);
@@ -97,9 +102,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 hideButtons();
                 break;
 
-            case R.id.nav_profile:
-                Intent profileIntent = new Intent(this, LogInActivity.class);
-                startActivity(profileIntent);
+           case R.id.nav_profile:
+
+               if(user == 0){
+                   Intent profileIntent = new Intent(this, LogInActivity.class);
+                   startActivity(profileIntent);
+               } else {
+                   //starte Profile fragment
+                   getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
+
+               }
+
                 hideButtons();
                 break;
 
@@ -196,5 +209,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int randomId = new Random().nextInt((max - min) + 1) + min;
         //es fehlt nur noch ein adapter der über die id ein rezept zurück gibt
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        if (currentUser == null){
+            user = 0;
+        } else {
+            user = 1;
+
+        }
+
+    }
+
 
 }

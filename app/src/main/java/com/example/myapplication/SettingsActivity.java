@@ -77,7 +77,6 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
                 themeChooser.setColorTheme();
 
 
-
                 int color = ColorSettings.getCheckedRadioButtonId();
                 int charSize = CharSizeSettings.getCheckedRadioButtonId();
 
