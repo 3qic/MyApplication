@@ -63,6 +63,10 @@ public class ProfileFragment extends Fragment {
         changePwButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                ChangePasswordFragment changePasswordFragment = new ChangePasswordFragment();
+                fragmentManager.beginTransaction().replace(R.id.fragment_container, changePasswordFragment).addToBackStack(null).commit();
+
 
             }
         });
