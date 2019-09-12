@@ -78,12 +78,19 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
+
+
+
         adapter=new FirebaseRecyclerAdapter<Recipe, MyRecyclerViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull MyRecyclerViewHolder holder, int position, @NonNull Recipe model) {
                 holder.name.setText(model.getName());
                 holder.desc.setText(model.getKurzbeschreibung());
             }
+
+
+
+
 
             @NonNull
             @Override
