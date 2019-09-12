@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -19,6 +23,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -30,17 +35,12 @@ public class SearchActivity extends AppCompatActivity {
     int appTheme;
     int themeColor;
     int appColor;
-
-    private SearchView searchbar;
-    private ArrayList<Recipe> list;
-    private RecyclerView results;
-
-    private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference databaseReference;
-
-    FirebaseRecyclerOptions<Recipe> options;
+    private RecyclerView recyclerView;
+    private EditText searchbar;
     FirebaseRecyclerAdapter<Recipe, MyRecyclerViewHolder> adapter;
-
+    FirebaseRecyclerOptions<Recipe> options;
+    private DatabaseReference databaseReference;
+    private ArrayList<Recipe> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,6 @@ public class SearchActivity extends AppCompatActivity {
         appColor = app_preferences.getInt("color", 0);
         appTheme = app_preferences.getInt("theme", 0);
         themeColor = appColor;
-
         if (themeColor == 0) {
             setTheme(Constant.theme);
         } else if (appTheme == 0) {
@@ -57,97 +56,87 @@ public class SearchActivity extends AppCompatActivity {
         } else {
             setTheme(appTheme);
         }
-
-
         setContentView(R.layout.search_activity_layout);
+        setupView();
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("recipe-database").child("Rezepte");
-        list = new ArrayList<>();
-        searchbar = findViewById(R.id.searchView);
-        results = findViewById(R.id.search_results);
-        results.setLayoutManager(new LinearLayoutManager(this));
-        display();
+        searchbar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
-    }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(!s.toString().isEmpty()){
+                    search(s.toString());
+                }else{
+                    search("");
+                }
+            }
+        });
 
-    private void display() {
-        options = new FirebaseRecyclerOptions.Builder<Recipe>()
-                .setQuery(databaseReference, Recipe.class)
-                .build();
-
-
-        adapter = new FirebaseRecyclerAdapter<Recipe, MyRecyclerViewHolder>(options) {
+        adapter=new FirebaseRecyclerAdapter<Recipe, MyRecyclerViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull MyRecyclerViewHolder holder, int position, @NonNull Recipe model) {
                 holder.name.setText(model.getName());
                 holder.desc.setText(model.getKurzbeschreibung());
-                holder.ingredts.setText(model.getZutaten());
             }
 
             @NonNull
             @Override
             public MyRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-                View itemview = LayoutInflater.from(getBaseContext()).inflate(R.layout.recipe_searchresult_layout, viewGroup, false);
-                return new MyRecyclerViewHolder(itemview);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recipe_searchresult_layout, viewGroup,false);
+
+                return new MyRecyclerViewHolder(view);
             }
         };
 
-
         adapter.startListening();
-        results.setAdapter(adapter);
-
-
+        recyclerView.setAdapter(adapter);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if(databaseReference != null){
-            databaseReference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if(dataSnapshot.exists()){
-
-                        for(DataSnapshot ds : dataSnapshot.getChildren()){
-                            list.add(ds.getValue(Recipe.class));
-                        }
-                        display();
+    private void search(String s) {
+        Query query = databaseReference.orderByChild("name")
+                .startAt(s)
+                .endAt(s + "\uf8ff");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.hasChildren()){
+                    list.clear();
+                    for(DataSnapshot ds : dataSnapshot.getChildren()){
+                        final Recipe recipe = ds.getValue(Recipe.class);
+                        list.add(recipe);
                     }
+                    SearchBarAdapter myAdapter = new SearchBarAdapter(getApplicationContext(), list);
+                    recyclerView.setAdapter(myAdapter);
+                    myAdapter.notifyDataSetChanged();
+
                 }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Toast.makeText(SearchActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
-
-        if (searchbar != null){
-            searchbar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String s) {
-                    return false;
-                }
-
-                @Override
-                public boolean onQueryTextChange(String s) {
-                    search(s);
-
-                    return true;
-                }
-            });
-        }
-
-        }
-    }
-
-    public void search(String string){
-        ArrayList<Recipe> searchList = new ArrayList<>();
-        for (Recipe object : list) {
-            if (object.getName().toLowerCase().contains(string.toLowerCase())) {
-                searchList.add(object);
             }
-        }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
+
+    private void setupView(){
+        searchbar = findViewById(R.id.searchView);
+        recyclerView = findViewById(R.id.search_results);
+        recyclerView.setHasFixedSize(true);
+        list = new ArrayList<>();
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Rezepte");
+        options = new FirebaseRecyclerOptions.Builder<Recipe>()
+                .setQuery(databaseReference, Recipe.class)
+                .build();
+    }
+
 }

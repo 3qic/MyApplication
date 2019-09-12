@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,12 +12,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class SearchBarAdapter extends RecyclerView.Adapter<SearchBarAdapter.MyViewHolder> {
+        public Context c;
+        public ArrayList<Recipe> arrayList;
 
-    ArrayList<Recipe>list;
-    public SearchBarAdapter(ArrayList<Recipe>list)
-    {
-        this.list=list;
-
+    public SearchBarAdapter(Context c, ArrayList<Recipe> arrayList) {
+        this.c = c;
+        this.arrayList = arrayList;
     }
 
     @NonNull
@@ -28,19 +29,24 @@ public class SearchBarAdapter extends RecyclerView.Adapter<SearchBarAdapter.MyVi
     }
 
     @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
-        myViewHolder.name.setText(list.get(i).getName());
-        myViewHolder.desc.setText(list.get(i).getKurzbeschreibung());
-        myViewHolder.ingredts.setText(list.get(i).getZutaten());
+        myViewHolder.name.setText(arrayList.get(i).getName());
+        myViewHolder.desc.setText(arrayList.get(i).getKurzbeschreibung());
+        myViewHolder.ingredts.setText(arrayList.get(i).getZutaten());
 
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return arrayList.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView name, desc, ingredts;
 
@@ -48,7 +54,6 @@ public class SearchBarAdapter extends RecyclerView.Adapter<SearchBarAdapter.MyVi
             super(itemView);
             name = itemView.findViewById(R.id.Name);
             desc = itemView.findViewById(R.id.Kurzbeschreibung);
-            ingredts = itemView.findViewById(R.id.Zutaten);
 
         }
     }
