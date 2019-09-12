@@ -25,7 +25,6 @@ public class NoteFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable final Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_notes, container, false);
-
         Notepad = v.findViewById(R.id.EditTextNote);
         saveButton = v.findViewById(R.id.floating_save_button);
 
@@ -34,6 +33,7 @@ public class NoteFragment extends Fragment {
         textnote = preferences.getString("Text", "");
         Notepad.setText(textnote);
         editor = preferences.edit();
+
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override

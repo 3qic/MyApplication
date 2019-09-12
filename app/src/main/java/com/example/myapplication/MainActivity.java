@@ -36,9 +36,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private int user = 0;
 
     SharedPreferences app_preferences;
+
     int appTheme;
     int themeColor;
     int appColor;
+
 
 
 
@@ -72,12 +74,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void findViews() {
         toolbar = findViewById(R.id.main_toolbar);
+        drawer = findViewById(R.id.drawer_layout);
         randomButton = findViewById(R.id.foodsharing_button);
         addbutton = findViewById(R.id.add_button);
-        drawer = findViewById(R.id.drawer_layout);
         searchForName = findViewById(R.id.searchrecipe_button);
         searchForIngrediant = findViewById(R.id.searchforingredients_button);
-
 
     }
 
@@ -149,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void setupNavigationView() {
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
 
