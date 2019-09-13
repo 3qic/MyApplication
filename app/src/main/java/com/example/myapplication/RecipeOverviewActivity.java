@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -42,6 +43,8 @@ public class RecipeOverviewActivity extends AppCompatActivity {
         setupListener();
 
     }
+
+
 
     private void setupLayout(){
         nameOfRecipe = findViewById(R.id.nameOfRecipe);

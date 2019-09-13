@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,9 +30,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer;
     private NavigationView navigationView;
     private Button randomButton;
-    private Button addbutton;
+    private Button addButton;
     private Button searchForName;
-    private Button searchForIngrediant;
+    private Button searchForIngredient;
     private FirebaseAuth firebaseAuth;
     private int user = 0;
 
@@ -76,9 +77,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.main_toolbar);
         drawer = findViewById(R.id.drawer_layout);
         randomButton = findViewById(R.id.foodsharing_button);
-        addbutton = findViewById(R.id.add_button);
+        addButton = findViewById(R.id.add_button);
         searchForName = findViewById(R.id.searchrecipe_button);
-        searchForIngrediant = findViewById(R.id.searchforingredients_button);
+        searchForIngredient = findViewById(R.id.searchforingredients_button);
 
     }
 
@@ -87,6 +88,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_opern, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+
     }
 
     @Override
@@ -145,6 +148,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             this.moveTaskToBack(true);
         }
+        Intent intent = new Intent (this, MainActivity.class);
+        startActivity(intent);
     }
 
     public void setupNavigationView() {
@@ -177,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
            }
        });
 
-       addbutton.setOnClickListener(new View.OnClickListener() {
+       addButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddRecipeFragment()).commit();
@@ -189,9 +194,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void hideButtons(){
         randomButton.setVisibility(View.INVISIBLE);
-        addbutton.setVisibility(View.INVISIBLE);
+        addButton.setVisibility(View.INVISIBLE);
         searchForName.setVisibility(View.INVISIBLE);
-        searchForIngrediant.setVisibility(View.INVISIBLE);
+        searchForIngredient.setVisibility(View.INVISIBLE);
     }
 
     private void switchToLogin(){
