@@ -1,75 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:id="@+id/add_fragment">
 
-<TextView
-    android:id="@+id/addrecipe_maintext"
-    android:layout_marginTop="5dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Fügen Sie der Datenbank ein Rezept hinzu."
-    android:textSize="20sp"
-    android:backgroundTint="?colorPrimary"
-    android:padding="10dp"
-    android:gravity="center"
-    />
-
-<EditText
-    android:layout_marginTop="20dp"
-    android:layout_below="@+id/addrecipe_maintext"
-
-    android:id="@+id/addrecipe_name"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:hint="Rezeptname eingeben"
-    />
-
-    <EditText
-        android:layout_below="@+id/addrecipe_name"
-
-        android:id="@+id/addrecipe_description"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:hint="Kurzbeschreibung eingeben"/>
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:layout_below="@+id/addrecipe_description"
+        <TextView
+            android:id="@+id/addrecipe_maintext"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fügen Sie der Datenbank ein Rezept hinzu."
+            android:textSize="20sp"
+            android:backgroundTint="?colorPrimary"
+            android:padding="10dp"
+            android:gravity="center"
+            />
 
-        android:id="@+id/addrecipe_instuctions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:hint="Kochanleitung eingeben"/>
+        <EditText
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/addrecipe_maintext"
 
-    <EditText
-        android:layout_below="@+id/addrecipe_instuctions"
+            android:id="@+id/addrecipe_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Rezeptname eingeben"
+            />
 
-        android:id="@+id/addrecipe_ingerdients"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Zutaten eingeben"
-        android:padding="20dp"
-        />
+        <EditText
+            android:layout_below="@+id/addrecipe_name"
 
-    <Button
-        android:layout_below="@+id/addrecipe_ingerdients"
-        android:padding="20dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/saverecipe_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Rezept Hochladen"
-        android:backgroundTint="?colorPrimary"
-        />
+            android:id="@+id/addrecipe_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:hint="Kurzbeschreibung eingeben"/>
 
+        <EditText
+            android:layout_below="@+id/addrecipe_description"
 
+            android:id="@+id/addrecipe_instuctions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:hint="Kochanleitung eingeben"/>
 
+        <EditText
+            android:layout_below="@+id/addrecipe_instuctions"
 
+            android:id="@+id/addrecipe_ingerdients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Zutaten eingeben"
+            android:padding="20dp"
+            />
 
+        <Button
+            android:layout_below="@+id/addrecipe_ingerdients"
+            android:padding="20dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/saverecipe_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rezept Hochladen"
+            android:backgroundTint="?colorPrimary"
+            />
+    </RelativeLayout>
 
-</RelativeLayout>
+</ScrollView>

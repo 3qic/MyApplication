@@ -13,16 +13,16 @@
     </ListView>
 
 
-<EditText
-    android:id="@+id/Enter_Item_Name"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="400dp"
-    android:hint="Artikel aufschreiben ..."
-    android:imeOptions="actionDone"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
-    />
+    <EditText
+        android:id="@+id/Enter_Item_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:hint="Artikel aufschreiben ..."
+        android:imeOptions="actionDone"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
 
     <EditText
         android:id="@+id/Enter_Item_Amount"
