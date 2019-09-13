@@ -150,6 +150,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             this.moveTaskToBack(true);
         }
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     public void setupNavigationView() {
