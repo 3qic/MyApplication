@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -28,16 +27,17 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Toolbar toolbar;
-    private TextView infotext;
     private DrawerLayout drawer;
     private NavigationView navigationView;
     private Button randomButton;
     private Button addbutton;
     private Button searchForName;
     private Button searchForIngrediant;
+    private TextView info;
+
+
     private FirebaseAuth firebaseAuth;
     private int user = 0;
-
 
     SharedPreferences app_preferences;
 
@@ -74,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setupNavigationView();
         setupListener();
 
-
     }
 
     public void findViews() {
@@ -84,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         addbutton = findViewById(R.id.add_button);
         searchForName = findViewById(R.id.searchrecipe_button);
         searchForIngrediant = findViewById(R.id.searchforingredients_button);
-        infotext = findViewById(R.id.InfoText);
+        info = findViewById(R.id.InfoText);
 
     }
 
@@ -115,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                    Intent profileIntent = new Intent(this, LogInActivity.class);
                    startActivity(profileIntent);
                } else {
+                   //starte Profile fragment
                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
 
                }
@@ -190,13 +190,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
            }
        });
 
-       searchForIngrediant.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent intent = new Intent(MainActivity.this, IngredientSearchActivity.class);
-               startActivity(intent);
-           }
-       });
+        searchForIngrediant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, IngredientSearchActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -205,9 +205,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         addbutton.setVisibility(View.INVISIBLE);
         searchForName.setVisibility(View.INVISIBLE);
         searchForIngrediant.setVisibility(View.INVISIBLE);
-        infotext.setVisibility(View.INVISIBLE);
+        info.setVisibility(View.INVISIBLE);
 
     }
+
 
 
     private void  switchToSearchbar(){
