@@ -20,6 +20,8 @@ public class AddRecipeFragment extends Fragment {
     private EditText recipeIngredients;
     private EditText recipeDescription;
     private EditText recipeInstruction;
+    private EditText recipeCookingTime;
+
     private DatabaseReference reference;
     private Button uploadRecipe;
     private Recipe recipe;
@@ -33,6 +35,7 @@ public class AddRecipeFragment extends Fragment {
         recipeIngredients = v.findViewById(R.id.addrecipe_ingerdients);
         recipeDescription = v.findViewById(R.id.addrecipe_description);
         recipeInstruction = v.findViewById(R.id.addrecipe_instuctions);
+        recipeCookingTime = v.findViewById(R.id.addrecipe_cookingTime);
 
         uploadRecipe = v.findViewById(R.id.saverecipe_button);
         reference = FirebaseDatabase.getInstance().getReference().child("Rezepte");
@@ -41,16 +44,18 @@ public class AddRecipeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if( recipeName.getText().length() != 0 && recipeIngredients.getText().length() != 0 && recipeInstruction.getText().length()!= 0){
+                if( recipeName.getText().length() != 0 && recipeIngredients.getText().length() != 0 && recipeInstruction.getText().length()!= 0 && recipeDescription.getText().length() != 0 && recipeCookingTime.getText().length() != 0){
                         String name = recipeName.getText().toString();
                         String desc = recipeDescription.getText().toString();
                         String Instruct = recipeInstruction.getText().toString();
                         String Ingredts = recipeIngredients.getText().toString();
+                        String CookingTime = recipeCookingTime.getText().toString();
                         recipe = new Recipe();
                         recipe.setName(name);
                         recipe.setKurzbeschreibung(desc);
                         recipe.setAnleitung(Instruct);
                         recipe.setZutaten(Ingredts);
+                        recipe.setArbeitszeit(CookingTime);
 
                         reference.push().setValue(recipe);
 

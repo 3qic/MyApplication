@@ -6,6 +6,7 @@ public class Recipe {
     private String Kurzbeschreibung;
     private String Anleitung;
     private String Zutaten;
+    private String Arbeitszeit;
     private static int id = 0;
 
 
@@ -47,5 +48,13 @@ public class Recipe {
 
     public void setZutaten(String zutaten) {
         Zutaten = zutaten;
+    }
+
+    public String getArbeitszeit() {
+        return Arbeitszeit;
+    }
+
+    public void setArbeitszeit(String arbeitszeit) {
+        Arbeitszeit = arbeitszeit;
     }
 }

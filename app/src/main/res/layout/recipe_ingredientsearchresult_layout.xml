@@ -21,11 +21,11 @@
 
 
         <TextView
-            android:id="@+id/Kurzbeschreibung"
+            android:id="@+id/Zutaten"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Kurzbeschreibung"
+            android:text="Zutaten"
             android:textSize="18sp" />
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"/>
         <TextView
-            android:id="@+id/Zutaten"
+            android:id="@+id/Kurzbeschreibung"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text=""/>

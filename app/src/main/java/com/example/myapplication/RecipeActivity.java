@@ -23,8 +23,13 @@ public class RecipeActivity extends AppCompatActivity {
     int appTheme;
     int themeColor;
     int appColor;
+    private String nameString;
+    private String instructionString;
+    private String ingrediantsString;
 
-    private TextView textView, scroll;
+    private TextView textView, recipeName, recipeIngrediants, recipeInstruction;
+
+
     private Button startStopButton;
     private CountDownTimer countDownTimer;
     private long timeLeftMilli;
@@ -54,6 +59,13 @@ public class RecipeActivity extends AppCompatActivity {
         setupItems();
         setupListener();
 
+        nameString = getIntent().getExtras().get("Name").toString();
+        ingrediantsString = getIntent().getExtras().get("Zutaten").toString();
+        instructionString = getIntent().getExtras().get("Kochanleitung").toString();
+
+
+        setInfo();
+
     }
 
 
@@ -61,8 +73,10 @@ public class RecipeActivity extends AppCompatActivity {
         textView = findViewById(R.id.timer);
         startStopButton = findViewById(R.id.start);
         editText = findViewById(R.id.input);
-        scroll = findViewById(R.id.textView);
-        scroll.setMovementMethod((new ScrollingMovementMethod()));
+        recipeIngrediants = findViewById(R.id.recipe_mainView_ingrediants);
+        recipeInstruction = findViewById(R.id.recipe_mainView_instruction);
+        recipeName = findViewById(R.id.recipe_mainView_title);
+        recipeInstruction.setMovementMethod(new ScrollingMovementMethod());
         timerNotification = new TimerNotification(this);
         backToRecipe = new Intent(RecipeActivity.this, RecipeActivity.class);
 
@@ -75,7 +89,6 @@ public class RecipeActivity extends AppCompatActivity {
                 startStop();
             }
         });
-
 
     }
 
@@ -119,6 +132,12 @@ public class RecipeActivity extends AppCompatActivity {
         countDownTimer.cancel();
         startStopButton.setText(R.string.start);
         isRunning = false;
+    }
+
+    public void setInfo(){
+        recipeIngrediants.setText(ingrediantsString);
+        recipeInstruction.setText(instructionString);
+        recipeName.setText(nameString);
     }
 
 

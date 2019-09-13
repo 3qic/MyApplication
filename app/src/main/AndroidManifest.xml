@@ -38,6 +38,10 @@
             android:name=".RegisterActivity"
             android:label="Registrieren"/>
 
+        <activity android:name=".IngredientSearchActivity"
+            android:label="Suche nach Zutaten"
+            />
+
     </application>
 
 </manifest>

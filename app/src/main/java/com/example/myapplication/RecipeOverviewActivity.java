@@ -6,20 +6,36 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.FirebaseOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class RecipeOverviewActivity extends AppCompatActivity {
 
-    private TextView nameOfRecipe, time, ingredients;
-    private ImageView img;
+    private TextView nameOfRecipe, descriprion, time, ingredients;
+
     private Button cookNowButton;
     SharedPreferences app_preferences;
     int appTheme;
     int themeColor;
     int appColor;
+
+    private String nameString;
+    private String descriptionString;
+    private String cookingTimeString;
+    private String instructionString;
+    private String ingrediantsString;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,46 +55,53 @@ public class RecipeOverviewActivity extends AppCompatActivity {
         }
         setContentView(R.layout.recipe_overview_activity);
         setupLayout();
-        fillItems("Essen duh","40 Minuten", "Stuff");
         setupListener();
 
+
+        nameString = getIntent().getExtras().get("Name").toString();
+        descriptionString = getIntent().getExtras().get("Beschreibung").toString();
+        ingrediantsString = getIntent().getExtras().get("Zutaten").toString();
+        instructionString = getIntent().getExtras().get("Kochanleitung").toString();
+        cookingTimeString = getIntent().getExtras().get("Zubereitungszeit").toString();
+
+        putInfo();
     }
 
 
 
     private void setupLayout(){
+        descriprion = findViewById(R.id.recipe_short_description);
         nameOfRecipe = findViewById(R.id.nameOfRecipe);
-        time = findViewById(R.id.time);
+        time = findViewById(R.id.recipe_cooking_time);
         ingredients = findViewById(R.id.ingredients);
-        img = findViewById(R.id.imageOfDish);
         cookNowButton = findViewById(R.id.cookNow);
 
-    }
-
-    private void switchToRecipe (){
-        Intent i = new Intent(this, RecipeActivity.class);
-        startActivity(i);
-
-
 
     }
+
+
+
 
     private void setupListener(){
-
         cookNowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), RecipeActivity.class);
 
-              switchToRecipe();
+                i.putExtra("Name", nameString);
+                i.putExtra("Beschreibung", descriptionString);
+                i.putExtra("Zutaten", ingrediantsString);
+                i.putExtra("Zubereitungszeit", cookingTimeString);
+                i.putExtra("Kochanleitung", instructionString);
+
+                startActivity(i);
             }
         });
     }
-
-    private void fillItems(String name, String cookTime, String ing) {
-        nameOfRecipe.setText(name);
-        time.setText(cookTime);
-        ingredients.setText(ing);
-
+    private void putInfo(){
+        nameOfRecipe.setText(nameString);
+        descriprion. setText(descriptionString);
+        ingredients.setText(ingrediantsString);
+        time.setText(cookingTimeString);
     }
-
 }

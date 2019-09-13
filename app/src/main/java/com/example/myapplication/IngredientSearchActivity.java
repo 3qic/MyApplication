@@ -7,17 +7,13 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -31,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 
-public class SearchActivity extends AppCompatActivity {
+public class IngredientSearchActivity extends AppCompatActivity {
 
     SharedPreferences app_preferences;
     int appTheme;
@@ -58,7 +54,7 @@ public class SearchActivity extends AppCompatActivity {
         } else {
             setTheme(appTheme);
         }
-        setContentView(R.layout.search_activity_layout);
+        setContentView(R.layout.ingredient_search_activity_layout);
         setupView();
 
         searchbar.addTextChangedListener(new TextWatcher() {
@@ -121,7 +117,7 @@ public class SearchActivity extends AppCompatActivity {
             @NonNull
             @Override
             public MyRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recipe_searchresult_layout, viewGroup,false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recipe_ingredientsearchresult_layout, viewGroup,false);
 
                 return new MyRecyclerViewHolder(view);
             }
@@ -132,7 +128,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void search(String s) {
-        Query query = databaseReference.orderByChild("name")
+        Query query = databaseReference.orderByChild("zutaten")
                 .startAt(s)
                 .endAt(s + "\uf8ff");
         query.addValueEventListener(new ValueEventListener() {
@@ -160,8 +156,8 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void setupView(){
-        searchbar = findViewById(R.id.searchView);
-        recyclerView = findViewById(R.id.search_results);
+        searchbar = findViewById(R.id.ingredient_search_view);
+        recyclerView = findViewById(R.id.ingredient_search_results);
         recyclerView.setHasFixedSize(true);
         list = new ArrayList<>();
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);

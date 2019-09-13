@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,14 +28,16 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Toolbar toolbar;
+    private TextView infotext;
     private DrawerLayout drawer;
     private NavigationView navigationView;
     private Button randomButton;
-    private Button addButton;
+    private Button addbutton;
     private Button searchForName;
-    private Button searchForIngredient;
+    private Button searchForIngrediant;
     private FirebaseAuth firebaseAuth;
     private int user = 0;
+
 
     SharedPreferences app_preferences;
 
@@ -71,15 +74,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setupNavigationView();
         setupListener();
 
+
     }
 
     public void findViews() {
         toolbar = findViewById(R.id.main_toolbar);
         drawer = findViewById(R.id.drawer_layout);
-        randomButton = findViewById(R.id.foodsharing_button);
-        addButton = findViewById(R.id.add_button);
+        randomButton = findViewById(R.id.random_button);
+        addbutton = findViewById(R.id.add_button);
         searchForName = findViewById(R.id.searchrecipe_button);
-        searchForIngredient = findViewById(R.id.searchforingredients_button);
+        searchForIngrediant = findViewById(R.id.searchforingredients_button);
+        infotext = findViewById(R.id.InfoText);
 
     }
 
@@ -88,8 +93,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_opern, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
-
     }
 
     @Override
@@ -112,7 +115,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                    Intent profileIntent = new Intent(this, LogInActivity.class);
                    startActivity(profileIntent);
                } else {
-                   //starte Profile fragment
                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
 
                }
@@ -148,8 +150,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             this.moveTaskToBack(true);
         }
-        Intent intent = new Intent (this, MainActivity.class);
-        startActivity(intent);
     }
 
     public void setupNavigationView() {
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
            }
        });
 
-       addButton.setOnClickListener(new View.OnClickListener() {
+       addbutton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddRecipeFragment()).commit();
@@ -190,19 +190,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
            }
        });
 
+       searchForIngrediant.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent = new Intent(MainActivity.this, IngredientSearchActivity.class);
+               startActivity(intent);
+           }
+       });
+
     }
 
     private void hideButtons(){
         randomButton.setVisibility(View.INVISIBLE);
-        addButton.setVisibility(View.INVISIBLE);
+        addbutton.setVisibility(View.INVISIBLE);
         searchForName.setVisibility(View.INVISIBLE);
-        searchForIngredient.setVisibility(View.INVISIBLE);
+        searchForIngrediant.setVisibility(View.INVISIBLE);
+        infotext.setVisibility(View.INVISIBLE);
+
     }
 
-    private void switchToLogin(){
-        Intent intent = new Intent(this, LogInActivity.class);
-        startActivity(intent);
-    }
 
     private void  switchToSearchbar(){
         Intent intent = new Intent(this, SearchActivity.class);
