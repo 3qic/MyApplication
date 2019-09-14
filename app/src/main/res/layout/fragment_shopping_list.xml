@@ -38,24 +38,26 @@
 
     <Button
         android:id="@+id/Add_Shopping_Item"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Artikel hinzufügen"
         android:gravity="center"
         android:textColor="@color/white"
+        android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="500dp"
         android:backgroundTint="?colorPrimary"/>
 
     <Button
         android:id="@+id/Savebutton_Shopping_List"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Liste speichern"
         android:gravity="center"
         android:textColor="@color/white"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="550dp"
         android:backgroundTint="?colorPrimary" />
 
 

@@ -21,6 +21,7 @@ public class RecipeOverviewActivity extends AppCompatActivity {
 
     private TextView nameOfRecipe, descriprion, time, ingredients;
 
+
     private Button cookNowButton;
     SharedPreferences app_preferences;
     int appTheme;

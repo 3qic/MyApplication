@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relativeLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <ListView
+        android:id="@+id/Shopping_List_List_View"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/Enter_Item_Name"
+        app:layout_constraintHeight_default="wrap"></ListView>
 
     <Button
         android:id="@+id/Add_Shopping_Item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:backgroundTint="?colorPrimary"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:gravity="center"
         android:text="Artikel hinzufügen"
         android:textColor="@color/white"
@@ -23,14 +34,17 @@
         android:id="@+id/Savebutton_Shopping_List"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:background="@color/white"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
         android:backgroundTint="?colorPrimary"
         android:gravity="center"
         android:text="Liste speichern"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        />
+        app:layout_constraintRight_toRightOf="parent" />
+
 
     <EditText
         android:id="@+id/Enter_Item_Name"
@@ -38,8 +52,8 @@
         android:layout_height="wrap_content"
         android:hint="Artikel aufschreiben ..."
         android:imeOptions="actionDone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/Enter_Item_Amount" />
+        app:layout_constraintBottom_toTopOf="@id/Enter_Item_Amount"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/Enter_Item_Amount"
@@ -48,17 +62,10 @@
         android:hint="Anzahl ..."
         android:imeOptions="actionDone"
         android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/Add_Shopping_Item" />
-
-
-    <ListView
-        android:id="@+id/Shopping_List_List_View"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        ></ListView>
-
-
+        app:layout_constraintBottom_toTopOf="@id/Add_Shopping_Item"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
+
+
+

@@ -25,8 +25,92 @@
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
 
+            <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/searchrecipe_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Rezepte nach Sitchworten suchen"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:padding="10dp"/>
+
+                <Button
+                    android:id="@+id/searchforingredients_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Rezepte nach Zutaten suchen"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/searchrecipe_button" />
+
+
+                <Button
+                    android:id="@+id/random_button"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/round_button"
+                    android:backgroundTint="?colorPrimary"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="zufälliges Rezept"
+                    android:textColor="#fff"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/add_button"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+                <Button
+                    android:id="@+id/add_button"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/round_button"
+                    android:backgroundTint="?colorPrimary"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="@string/add_button"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:textSize="40sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/random_button" />
+
+
+                <TextView
+                    android:id="@+id/InfoText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/textview_background"
+                    android:text="Info: weiß noch nicht was wir hier reinschreiben"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+        </FrameLayout>
 
     </LinearLayout>
 
@@ -36,96 +120,7 @@
 
 
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
 
-   >
-
-
-
-    <Button
-        android:id="@+id/searchrecipe_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="20dp"
-        android:text="Rezepte nach Sitchworten suchen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:padding="10dp"/>
-
-    <Button
-        android:id="@+id/searchforingredients_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:padding="10dp"
-        android:layout_marginRight="20dp"
-        android:text="Rezepte nach Zutaten suchen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchrecipe_button" />
-
-
-    <Button
-        android:id="@+id/random_button"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="?colorPrimary"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="zufälliges Rezept"
-        android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/add_button"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <Button
-        android:id="@+id/add_button"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginLeft="90dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="?colorPrimary"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/add_button"
-        android:textAlignment="center"
-        android:textColor="#fff"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/random_button" />
-
-
-    <TextView
-        android:id="@+id/InfoText"
-        android:layout_width="300dp"
-        android:layout_height="150dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/textview_background"
-        android:text="Info: weiß noch nicht was wir hier reinschreiben"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
-
-
-</android.support.constraint.ConstraintLayout>
 
 
     <android.support.design.widget.NavigationView
@@ -136,4 +131,4 @@
         app:headerLayout="@layout/burgermenu_header"
         app:menu="@menu/burger_menu" />
 
-    </android.support.v4.widget.DrawerLayout>
+</android.support.v4.widget.DrawerLayout>

@@ -7,7 +7,7 @@
     <string name="navigation_profile">Mein Profil</string>
     <string name="navigation_note">Meine Notizen</string>
     <string name="navigation_shopping_list">Meine Einkaufsliste</string>
-    <string name="navigation_favourite_dish">Meine Lieblingsrezepte</string>
+    <string name="navigation_favourite_dish">Lieblingsrezepte</string>
     <string name="navigation_settings">Einstellungen</string>
     <string name="save_button">Speichern</string>
     <string name="add_button">+</string>

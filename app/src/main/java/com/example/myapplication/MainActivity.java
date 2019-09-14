@@ -105,7 +105,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_note:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NoteFragment()).commit();
-                hideButtons();
                 break;
 
            case R.id.nav_profile:
@@ -119,7 +118,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                }
 
-                hideButtons();
                 break;
 
             case R.id.nav_settings:
@@ -129,12 +127,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_shopping_list:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ShoppingListFragment()).commit();
-                hideButtons();
                 break;
 
             case R.id.nav_favourite_dish:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FavouriteDishFragment()).commit();
-                hideButtons();
                 break;
         }
 
@@ -188,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
            @Override
            public void onClick(View v) {
                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddRecipeFragment()).commit();
-                hideButtons();
+
            }
        });
 
@@ -202,14 +198,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    private void hideButtons(){
-        randomButton.setVisibility(View.INVISIBLE);
-        addbutton.setVisibility(View.INVISIBLE);
-        searchForName.setVisibility(View.INVISIBLE);
-        searchForIngrediant.setVisibility(View.INVISIBLE);
-        info.setVisibility(View.INVISIBLE);
-
-    }
 
 
 

@@ -21,45 +21,45 @@
         android:id="@+id/nameOfRecipe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:padding="5dp"/>
+        android:textSize="20sp"
+        android:padding="1dp"/>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="10dp"
         android:background="?colorPrimary" />
 
 
 
-        <TextView
-            android:id="@+id/recipe_short_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:textSize="20sp" />
+    <TextView
+        android:id="@+id/recipe_short_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/recipe_cooking_time"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp" />
+    <TextView
+        android:id="@+id/recipe_cooking_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp" />
 
-        <TextView
-            android:id="@+id/ingredients"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:scrollbars = "vertical"
-            tools:scrollbars="vertical"
-            android:layout_weight="1"
-            android:lineSpacingExtra="2dp"
-            android:padding="10dp"
-            android:textSize="15sp"
-            />
+    <TextView
+        android:id="@+id/ingredients"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars = "vertical"
+        tools:scrollbars="vertical"
+        android:layout_weight="1"
+        android:lineSpacingExtra="2dp"
+        android:padding="10dp"
+        android:textSize="15sp"
+        />
 
     <Button
         android:id="@+id/cookNow"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:background="@drawable/round_button"
         android:backgroundTint="?colorPrimary"
         android:text="@string/cookNowButton" />

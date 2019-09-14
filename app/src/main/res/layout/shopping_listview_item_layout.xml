@@ -13,22 +13,21 @@
         android:layout_height="wrap_content"
         android:layout_weight="50"
         android:gravity="center"
-
         android:text="Name"
         android:textAlignment="center"
         android:textSize="20sp" />
 
 
-        <TextView
-            android:layout_weight="50"
-            android:gravity="center"
-            android:id="@+id/Shopping_List_Item_Amount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Anzahl"
-            android:textAlignment="center"
-            android:textSize="20sp"
-             />
+    <TextView
+        android:layout_weight="50"
+        android:gravity="center"
+        android:id="@+id/Shopping_List_Item_Amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Anzahl"
+        android:textAlignment="center"
+        android:textSize="20sp"
+         />
 
 
 </LinearLayout>
