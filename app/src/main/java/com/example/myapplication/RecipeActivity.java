@@ -26,6 +26,7 @@ public class RecipeActivity extends AppCompatActivity {
     private String nameString;
     private String instructionString;
     private String ingrediantsString;
+    private String recipeidString;
 
     private TextView textView, recipeName, recipeIngrediants, recipeInstruction;
 
@@ -62,7 +63,7 @@ public class RecipeActivity extends AppCompatActivity {
         nameString = getIntent().getExtras().get("Name").toString();
         ingrediantsString = getIntent().getExtras().get("Zutaten").toString();
         instructionString = getIntent().getExtras().get("Kochanleitung").toString();
-
+        recipeidString = getIntent().getExtras().get("RezeptID").toString();
 
         setInfo();
 

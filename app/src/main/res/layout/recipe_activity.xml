@@ -19,7 +19,7 @@
         android:id="@+id/input"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
-        android:hint="@string/hint"
+        android:hint="Kochuhr stellen"
         android:inputType="number"
         android:layout_toLeftOf="@+id/start"
         android:textColor="@color/white"/>

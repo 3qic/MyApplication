@@ -76,9 +76,11 @@ public class SearchActivity extends AppCompatActivity {
                     search(s.toString());
                 }else{
                     search("");
+
                 }
             }
         });
+
 
 
 
@@ -86,21 +88,19 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull MyRecyclerViewHolder holder, int position, @NonNull Recipe model) {
 
-
-
                 holder.name.setText(model.getName());
                 holder.desc.setText(model.getKurzbeschreibung());
                 holder.ingredts.setText(model.getZutaten());
                 holder.cookingTime.setText(model.getArbeitszeit());
                 holder.instruction.setText(model.getAnleitung());
 
-
-
                 final String name = holder.name.getText().toString();
                 final String description = holder.desc.getText().toString();
                 final String ingredients = holder.ingredts.getText().toString();
                 final String cookingTime = holder.cookingTime.getText().toString();
                 final String instruction = holder.instruction.getText().toString();
+                final String id = holder.id.getText().toString();
+
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -111,11 +111,11 @@ public class SearchActivity extends AppCompatActivity {
                         intent.putExtra("Zutaten", ingredients);
                         intent.putExtra("Zubereitungszeit", cookingTime);
                         intent.putExtra("Kochanleitung", instruction);
+                        intent.putExtra("RezeptID", id);
                         startActivity(intent);
                     }
                 });
             }
-
 
 
             @NonNull
@@ -129,33 +129,34 @@ public class SearchActivity extends AppCompatActivity {
 
         adapter.startListening();
         recyclerView.setAdapter(adapter);
+
+
     }
 
     private void search(String s) {
         Query query = databaseReference.orderByChild("name")
                 .startAt(s)
                 .endAt(s + "\uf8ff");
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.hasChildren()){
-                    list.clear();
-                    for(DataSnapshot ds : dataSnapshot.getChildren()){
-                        final Recipe recipe = ds.getValue(Recipe.class);
-                        list.add(recipe);
+            query.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.hasChildren()) {
+                        list.clear();
+                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                            final Recipe recipe = ds.getValue(Recipe.class);
+                            list.add(recipe);
+                        }
+                        SearchBarAdapter myAdapter = new SearchBarAdapter(getApplicationContext(), list);
+                        recyclerView.setAdapter(myAdapter);
+                        myAdapter.notifyDataSetChanged();
                     }
-                    SearchBarAdapter myAdapter = new SearchBarAdapter(getApplicationContext(), list);
-                    recyclerView.setAdapter(myAdapter);
-                    myAdapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+            });
 
     }
 
@@ -171,5 +172,7 @@ public class SearchActivity extends AppCompatActivity {
                 .setQuery(databaseReference, Recipe.class)
                 .build();
     }
+
+
 
 }

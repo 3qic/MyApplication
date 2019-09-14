@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.UUID;
 
 public class AddRecipeFragment extends Fragment {
     private EditText recipeName;
@@ -38,13 +41,14 @@ public class AddRecipeFragment extends Fragment {
         recipeCookingTime = v.findViewById(R.id.addrecipe_cookingTime);
 
         uploadRecipe = v.findViewById(R.id.saverecipe_button);
+
         reference = FirebaseDatabase.getInstance().getReference().child("Rezepte");
 
         uploadRecipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if( recipeName.getText().length() != 0 && recipeIngredients.getText().length() != 0 && recipeInstruction.getText().length()!= 0 && recipeDescription.getText().length() != 0 && recipeCookingTime.getText().length() != 0){
+                if( recipeName.getText().length() != 0 && recipeDescription.getText().length() !=0 && recipeInstruction.getText().length() != 0 && recipeIngredients.getText().length() != 0){
                         String name = recipeName.getText().toString();
                         String desc = recipeDescription.getText().toString();
                         String Instruct = recipeInstruction.getText().toString();
@@ -56,10 +60,12 @@ public class AddRecipeFragment extends Fragment {
                         recipe.setAnleitung(Instruct);
                         recipe.setZutaten(Ingredts);
                         recipe.setArbeitszeit(CookingTime);
+                        recipe.setRezeptid(UUID.randomUUID().toString());
 
                         reference.push().setValue(recipe);
-
                     Toast.makeText(getActivity(),"Rezept hochgeladen", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    startActivity(intent);
                 } else{
 
                     Toast.makeText(getActivity(),"Bitte füllen Sie alle Felder aus", Toast.LENGTH_SHORT).show();

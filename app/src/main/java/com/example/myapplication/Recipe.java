@@ -7,16 +7,14 @@ public class Recipe {
     private String Anleitung;
     private String Zutaten;
     private String Arbeitszeit;
-    private static int id = 0;
+    private String Rezeptid;
 
 
     public Recipe(){
-        id++;
+
     }
 
-    public static int getId(){
-        return id;
-    }
+
 
     public String getName() {
         return Name;
@@ -56,5 +54,13 @@ public class Recipe {
 
     public void setArbeitszeit(String arbeitszeit) {
         Arbeitszeit = arbeitszeit;
+    }
+
+    public String getRezeptid() {
+        return Rezeptid;
+    }
+
+    public void setRezeptid(String rezeptid) {
+        this.Rezeptid = rezeptid;
     }
 }

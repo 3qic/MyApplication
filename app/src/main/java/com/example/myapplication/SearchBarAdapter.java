@@ -25,10 +25,12 @@ public class SearchBarAdapter extends RecyclerView.Adapter<SearchBarAdapter.MyVi
         this.arrayList = arrayList;
     }
 
+
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recipe_ingredientsearchresult_layout, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recipe_searchresult_layout, viewGroup, false);
         return new MyViewHolder(v);
     }
 
@@ -44,6 +46,7 @@ public class SearchBarAdapter extends RecyclerView.Adapter<SearchBarAdapter.MyVi
         myViewHolder.ingredts.setText(arrayList.get(i).getZutaten());
         myViewHolder.cookingTime.setText(arrayList.get(i).getArbeitszeit());
         myViewHolder.instruction.setText(arrayList.get(i).getAnleitung());
+        myViewHolder.id.setText(arrayList.get(i).getRezeptid());
 
 
     }
@@ -55,7 +58,7 @@ public class SearchBarAdapter extends RecyclerView.Adapter<SearchBarAdapter.MyVi
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name, desc, ingredts, instruction, cookingTime;
+        TextView name, desc, ingredts, instruction, cookingTime, id;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +68,7 @@ public class SearchBarAdapter extends RecyclerView.Adapter<SearchBarAdapter.MyVi
             instruction = itemView.findViewById(R.id.Anleitung);
             ingredts = itemView.findViewById(R.id.Zutaten);
             cookingTime = itemView.findViewById(R.id.Kochzeit);
+            id = itemView.findViewById(R.id.Rezeptid);
 
         }
     }

@@ -45,9 +45,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     int themeColor;
     int appColor;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,9 +110,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                    Intent profileIntent = new Intent(this, LogInActivity.class);
                    startActivity(profileIntent);
                } else {
-                   //starte Profile fragment
                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
-
                }
 
                 break;
@@ -146,6 +141,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             this.moveTaskToBack(true);
         }
+
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
@@ -184,6 +180,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
            @Override
            public void onClick(View v) {
                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddRecipeFragment()).commit();
+               randomButton.setVisibility(View.INVISIBLE);
+               addbutton.setVisibility(View.INVISIBLE);
+             searchForName.setVisibility(View.INVISIBLE);
+              searchForIngrediant.setVisibility(View.INVISIBLE);
+              info.setVisibility(View.INVISIBLE);
 
            }
        });
@@ -207,12 +208,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    private void getRandomRecipe(){
+   /* private void getRandomRecipe(){
         int max = Recipe.getId();
         int min = Constant.idMin;
         int randomId = new Random().nextInt((max - min) + 1) + min;
         //es fehlt nur noch ein adapter der über die id ein rezept zurück gibt
-    }
+    }*/
 
     @Override
     public void onStart() {

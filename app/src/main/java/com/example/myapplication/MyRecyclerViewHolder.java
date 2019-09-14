@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MyRecyclerViewHolder extends RecyclerView.ViewHolder {
-    TextView name, desc, ingredts, instruction, cookingTime;
+    TextView name, desc, ingredts, instruction, cookingTime, id;
 
     public MyRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -15,6 +15,6 @@ public class MyRecyclerViewHolder extends RecyclerView.ViewHolder {
         ingredts = itemView.findViewById(R.id.Zutaten);
         instruction = itemView.findViewById(R.id.Anleitung);
         cookingTime = itemView.findViewById(R.id.Kochzeit);
-
+        id = itemView.findViewById(R.id.Rezeptid);
     }
 }

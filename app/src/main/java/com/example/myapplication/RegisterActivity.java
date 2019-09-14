@@ -19,6 +19,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.UUID;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -27,12 +33,16 @@ public class RegisterActivity extends AppCompatActivity {
     int themeColor;
     int appColor;
 
+    private User user;
     private EditText emailAddress;
     private EditText userPassword;
     private EditText confirmUserPassword;
     private Button registerProfileButton;
     private FirebaseAuth firebaseAuth;
     private Toolbar toolbar;
+    DatabaseReference reference;
+    FirebaseUser currentuser;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,15 +65,21 @@ public class RegisterActivity extends AppCompatActivity {
             toolbar.setTitle("Registrieren");
             findViews();
 
+
+
+            reference = FirebaseDatabase.getInstance().getReference().child("User");
+
             firebaseAuth = FirebaseAuth.getInstance();
+            currentuser  = FirebaseAuth.getInstance().getCurrentUser();
+
 
             registerProfileButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    String email = emailAddress.getText().toString().trim();
-                    String password = userPassword.getText().toString().trim();
-                    String confirmPassword = confirmUserPassword.getText().toString().trim();
+                   final String email = emailAddress.getText().toString().trim();
+                    final String password = userPassword.getText().toString().trim();
+                   final  String confirmPassword = confirmUserPassword.getText().toString().trim();
 
                     if (TextUtils.isEmpty(email)) {
                         Toast.makeText(RegisterActivity.this, "Bitte E-Mail Adresse angeben", Toast.LENGTH_SHORT).show();
@@ -98,6 +114,13 @@ public class RegisterActivity extends AppCompatActivity {
                                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                             Toast.makeText(RegisterActivity.this, "Registrierung abgeschlossen", Toast.LENGTH_SHORT).show();
 
+                                            String uid =firebaseAuth.getCurrentUser().getUid();
+
+
+                                            user = new User();
+                                            user.setNutzerID(uid);
+                                            user.setName(email);
+                                            reference.push().setValue(user);
 
                                         } else {
 
@@ -107,7 +130,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                                     }
                                 });
-
                     }
 
                 }

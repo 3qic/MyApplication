@@ -24,8 +24,10 @@ public class ProfileFragment extends Fragment {
     private Button changePwButton;
 
     private TextView useremail;
+    private TextView userID;
 
     private FirebaseUser firebaseUser;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
 
@@ -37,6 +39,7 @@ public class ProfileFragment extends Fragment {
         useremail = v.findViewById(R.id.currentUser_nameValue);
         logOutButton = v.findViewById(R.id.logout_Button);
         changePwButton = v.findViewById(R.id.changePw_Button);
+        userID = v.findViewById(R.id.currentUser_idValue);
 
 
 
@@ -45,6 +48,8 @@ public class ProfileFragment extends Fragment {
 
             String email =firebaseUser.getEmail();
             useremail.setText(email);
+            String uid = user.getUid();
+            userID.setText(uid);
         }
 
 
