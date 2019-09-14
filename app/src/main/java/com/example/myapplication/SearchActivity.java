@@ -37,6 +37,7 @@ public class SearchActivity extends AppCompatActivity {
     int appTheme;
     int themeColor;
     int appColor;
+
     private RecyclerView recyclerView;
     private EditText searchbar;
     FirebaseRecyclerAdapter<Recipe, MyRecyclerViewHolder> adapter;
@@ -93,6 +94,7 @@ public class SearchActivity extends AppCompatActivity {
                 holder.ingredts.setText(model.getZutaten());
                 holder.cookingTime.setText(model.getArbeitszeit());
                 holder.instruction.setText(model.getAnleitung());
+                holder.id.setText(model.getRezeptid());
 
                 final String name = holder.name.getText().toString();
                 final String description = holder.desc.getText().toString();

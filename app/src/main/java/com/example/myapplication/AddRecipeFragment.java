@@ -54,6 +54,7 @@ public class AddRecipeFragment extends Fragment {
                         String Instruct = recipeInstruction.getText().toString();
                         String Ingredts = recipeIngredients.getText().toString();
                         String CookingTime = recipeCookingTime.getText().toString();
+
                         recipe = new Recipe();
                         recipe.setName(name);
                         recipe.setKurzbeschreibung(desc);

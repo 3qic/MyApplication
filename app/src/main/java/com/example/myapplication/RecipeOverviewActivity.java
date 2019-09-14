@@ -79,8 +79,8 @@ public class RecipeOverviewActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("nutzerID");
-        reference.getKey();
+        reference = database.getReference("Lieblingsrezepte").child(mAuth.getCurrentUser().getUid());
+
 
         nameString = getIntent().getExtras().get("Name").toString();
         descriptionString = getIntent().getExtras().get("Beschreibung").toString();
@@ -132,8 +132,19 @@ public class RecipeOverviewActivity extends AppCompatActivity {
                 if (currentUser != null) {
                     if (favourite == 1) {
 
+                        Lieblingsrezept lieblingsrezept = new Lieblingsrezept();
+
+                        String id = idString;
+                        String name = nameString;
+                        String desrc = descriptionString;
+                        lieblingsrezept.setName(name);
+                        lieblingsrezept.setRezeptid(id);
+                        lieblingsrezept.setKurzbeschreibung(desrc);
+
+                        reference.push().setValue(lieblingsrezept);
+
                         image.setBackgroundResource(R.drawable.ic_favorite_full);
-                       Toast.makeText(getApplicationContext(), reference.getKey(), Toast.LENGTH_SHORT).show();
+                       Toast.makeText(getApplicationContext(), "Favorit hinzugefügt", Toast.LENGTH_SHORT).show();
                        favourite = 0;
 
                     } else {

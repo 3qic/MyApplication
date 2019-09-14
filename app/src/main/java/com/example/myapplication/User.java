@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class User {
 
 
-    private String nutzerID, name;
-    ArrayList<String>lieblingsrezepte;
+    private String nutzerID, email;
+
 
 
     public User (){
@@ -23,18 +23,12 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return email;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.email = name;
     }
 
-    public ArrayList<String> getLieblingsrezepte() {
-        return lieblingsrezepte;
-    }
 
-    public void setLieblingsrezepte(ArrayList<String> lieblingsrezepte) {
-        this.lieblingsrezepte = lieblingsrezepte;
-    }
 }
