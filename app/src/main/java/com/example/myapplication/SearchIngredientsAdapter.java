@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchIngredientsAdapter extends RecyclerView.Adapter<SearchIngredientsAdapter.MyViewHolder> {
     public Context c;
@@ -66,6 +67,11 @@ public class SearchIngredientsAdapter extends RecyclerView.Adapter<SearchIngredi
             id = itemView.findViewById(R.id.Rezeptid);
 
         }
+    }
+
+    public void filterList(ArrayList<Recipe> filteredList){
+        arrayList = filteredList;
+        notifyDataSetChanged();
     }
 
 

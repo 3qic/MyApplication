@@ -44,6 +44,9 @@ public class IngredientSearchActivity extends AppCompatActivity {
     FirebaseRecyclerOptions<Recipe> options;
     private DatabaseReference databaseReference;
     private ArrayList<Recipe> list;
+    SearchIngredientsAdapter myAdapter;
+    private long countItems;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,8 @@ public class IngredientSearchActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+
+
                 if(!s.toString().isEmpty()){
                     search(s.toString());
                 }else{
@@ -81,6 +86,7 @@ public class IngredientSearchActivity extends AppCompatActivity {
                 }
             }
         });
+
 
 
 
@@ -95,6 +101,7 @@ public class IngredientSearchActivity extends AppCompatActivity {
                 holder.cookingTime.setText(model.getArbeitszeit());
                 holder.instruction.setText(model.getAnleitung());
                 holder.id.setText(model.getRezeptid());
+
 
                 final String name = holder.name.getText().toString();
                 final String description = holder.desc.getText().toString();
@@ -136,19 +143,23 @@ public class IngredientSearchActivity extends AppCompatActivity {
     }
 
     private void search(String s) {
+
         Query query = databaseReference.orderByChild("zutaten")
                 .startAt(s)
                 .endAt(s + "\uf8ff");
+
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
+                    countItems = dataSnapshot.getChildrenCount();
+
                     list.clear();
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
                         final Recipe recipe = ds.getValue(Recipe.class);
                         list.add(recipe);
                     }
-                    SearchIngredientsAdapter myAdapter = new SearchIngredientsAdapter(getApplicationContext(), list);
+                    myAdapter = new SearchIngredientsAdapter(getApplicationContext(), list);
                     recyclerView.setAdapter(myAdapter);
                     myAdapter.notifyDataSetChanged();
                 }

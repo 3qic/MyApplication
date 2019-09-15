@@ -22,13 +22,17 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?colorPrimaryDark"></View>
+
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -39,6 +43,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
+                    android:background="@drawable/button_rounded_grey"
                     android:text="@string/search_promts"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="parent"
@@ -48,9 +53,10 @@
                 <Button
                     android:id="@+id/searchforingredients_button"
                     android:layout_width="match_parent"
+                    android:background="@drawable/button_rounded_grey"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:padding="10dp"
                     android:layout_marginRight="20dp"
                     android:text="@string/search_ingrediants"
@@ -93,17 +99,6 @@
                     app:layout_constraintStart_toEndOf="@+id/random_button" />
 
 
-                <TextView
-                    android:id="@+id/InfoText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/textview_background"
-                    android:text="@string/info_text"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
 
             </android.support.constraint.ConstraintLayout>

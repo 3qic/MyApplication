@@ -31,12 +31,13 @@ import java.util.Map;
 public class RecipeOverviewActivity extends AppCompatActivity {
 
     private TextView nameOfRecipe, descriprion, time, ingredients;
-    private Button cookNowButton;
-    SharedPreferences app_preferences;
-
+    private Button cookNowButton;SharedPreferences app_preferences;
+    SharedPreferences.Editor editor;
     int appTheme;
     int themeColor;
     int appColor;
+    int favButton;
+
     private ImageButton image;
     private String nameString;
     private String descriptionString;
@@ -48,7 +49,7 @@ public class RecipeOverviewActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseDatabase database;
     DatabaseReference reference;
-    private int favouriteStatus = 1;
+    private int favouriteStatus;
     private int loginStatus = 0;
 
 
@@ -61,9 +62,13 @@ public class RecipeOverviewActivity extends AppCompatActivity {
 
 
         app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
         appColor = app_preferences.getInt("color", 0);
         appTheme = app_preferences.getInt("theme", 0);
+
         themeColor = appColor;
+        favButton = app_preferences.getInt("buttonstate", 1);
+        favouriteStatus = favButton;
 
 
         if (themeColor == 0) {
@@ -74,12 +79,17 @@ public class RecipeOverviewActivity extends AppCompatActivity {
             setTheme(appTheme);
         }
 
+
+
         setContentView(R.layout.recipe_overview_activity);
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("Lieblingsrezepte").child(mAuth.getCurrentUser().getUid());
 
         setupLayout();
+
+
+
         setupListener();
 
         nameString = getIntent().getExtras().get("Name").toString();
@@ -153,6 +163,7 @@ public class RecipeOverviewActivity extends AppCompatActivity {
 
                         image.setBackgroundResource(R.drawable.ic_favorite_full);
                        Toast.makeText(getApplicationContext(), "Favorit hinzugefügt", Toast.LENGTH_SHORT).show();
+
                        favouriteStatus = 0;
 
                     } else {
@@ -160,15 +171,35 @@ public class RecipeOverviewActivity extends AppCompatActivity {
                         image.setBackgroundResource(R.drawable.ic_favorite_empty);
                         Toast.makeText(getApplicationContext(), "Von Favoriten entfernt", Toast.LENGTH_SHORT).show();
 
+
+                        Recipe recipe = new Recipe();
+
+                        String id = null;
+                        String name = null;
+                        String descr = null;
+                        String time = null;
+                        String instr = null;
+                        String ingred = null;
+
+                        recipe.setName(name);
+                        recipe.setRezeptid(id);
+                        recipe.setKurzbeschreibung(descr);
+                        recipe.setAnleitung(instr);
+                        recipe.setArbeitszeit(time);
+                        recipe.setZutaten(ingred);
+
+
+                        reference.setValue(recipe);
+
+
                         favouriteStatus = 1;
+
+
                     }
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Bitte loggen Sie sich ein um Favoriten hinzuzufügen", Toast.LENGTH_SHORT).show();
                 }
-
-                //hier noch datenbank updaten!!!
-
 
             }
         });

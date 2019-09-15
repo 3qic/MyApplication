@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -41,11 +42,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Button addbutton;
     private Button searchForName;
     private Button searchForIngrediant;
-    private TextView info;
-    private FirebaseDatabase database;
-    private DatabaseReference reference;
-    FirebaseRecyclerAdapter<Recipe, MyRecyclerViewHolder> adapter;
-    FirebaseRecyclerOptions<Recipe> options;
+
+
 
     private FirebaseAuth firebaseAuth;
     private int user = 0;
@@ -91,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         addbutton = findViewById(R.id.add_button);
         searchForName = findViewById(R.id.searchrecipe_button);
         searchForIngrediant = findViewById(R.id.searchforingredients_button);
-        info = findViewById(R.id.InfoText);
+
 
     }
 
@@ -191,7 +189,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                addbutton.setVisibility(View.INVISIBLE);
              searchForName.setVisibility(View.INVISIBLE);
               searchForIngrediant.setVisibility(View.INVISIBLE);
-              info.setVisibility(View.INVISIBLE);
 
            }
        });

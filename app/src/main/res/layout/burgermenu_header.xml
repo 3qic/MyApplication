@@ -14,15 +14,24 @@
         android:src="@drawable/flambe"
         android:layout_marginTop="32dp"/>
 
-    <TextView
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
+        android:paddingTop="10dp"
         android:text="@string/recipeze"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
+
+        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/menu_text" />
+
+    </FrameLayout>
 </LinearLayout>
