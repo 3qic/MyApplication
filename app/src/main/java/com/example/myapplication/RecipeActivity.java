@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+//Code für Shared Preferences: https://www.youtube.com/watch?v=GlR7wqWEomU
 
 public class RecipeActivity extends AppCompatActivity {
     SharedPreferences app_preferences;

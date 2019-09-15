@@ -33,6 +33,7 @@ import java.util.Random;
 
 // Quelle für runden Button https://stackoverflow.com/questions/9884202/custom-circle-button
 //Quelle für hintergrund bzw rahmen des info feldes: https://stackoverflow.com/questions/3496269/how-do-i-put-a-border-around-an-android-textview
+// Code für Bürgermenü https://www.youtube.com/watch?v=fGcMLu1GJEc und https://www.youtube.com/watch?v=bjYstsO1PgI
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Toolbar toolbar;

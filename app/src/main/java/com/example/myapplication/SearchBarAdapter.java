@@ -15,6 +15,8 @@ import com.google.firebase.database.DataSnapshot;
 
 import java.util.ArrayList;
 
+// Code für Adaptererstellung: https://www.youtube.com/watch?v=PmqYd-AdmC0
+
 public class SearchBarAdapter extends RecyclerView.Adapter<SearchBarAdapter.MyViewHolder> {
     public Context c;
     public ArrayList<Recipe> arrayList;

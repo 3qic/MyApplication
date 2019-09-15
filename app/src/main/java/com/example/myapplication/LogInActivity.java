@@ -20,6 +20,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+//Code für Shared Preferences: https://www.youtube.com/watch?v=GlR7wqWEomU
+
 public class LogInActivity extends AppCompatActivity {
 
 

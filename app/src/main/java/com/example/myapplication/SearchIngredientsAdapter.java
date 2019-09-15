@@ -11,6 +11,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+// Code für Adaptererstellung: https://www.youtube.com/watch?v=PmqYd-AdmC0
+
+
 public class SearchIngredientsAdapter extends RecyclerView.Adapter<SearchIngredientsAdapter.MyViewHolder> {
     public Context c;
     public ArrayList<Recipe> arrayList;

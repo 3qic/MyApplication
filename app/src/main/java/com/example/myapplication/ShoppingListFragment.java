@@ -25,6 +25,8 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+//Code für Ansätze: https://www.youtube.com/watch?v=jcliHGR3CHo
+
 public class ShoppingListFragment extends Fragment {
     private Button addButton;
     private Button savebutton;

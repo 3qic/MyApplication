@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+// Code: https://www.youtube.com/watch?v=KOUyvCkwRss
+
 public class MyRecyclerViewHolder extends RecyclerView.ViewHolder {
     TextView name, desc, ingredts, instruction, cookingTime, id;
 

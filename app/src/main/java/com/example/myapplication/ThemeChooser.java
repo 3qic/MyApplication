@@ -3,6 +3,8 @@ package com.example.myapplication;
 import com.example.myapplication.Constant;
 import com.example.myapplication.R;
 
+//Code mit Shared Preferences: https://www.youtube.com/watch?v=GlR7wqWEomU
+
 public class ThemeChooser {
 
         public void setColorTheme(){

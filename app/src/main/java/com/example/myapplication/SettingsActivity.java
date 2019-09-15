@@ -18,6 +18,8 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 
+//Code für Veränderung der Farbe mit Shared Preferences: https://www.youtube.com/watch?v=GlR7wqWEomU
+
 public class SettingsActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
 
     SharedPreferences sharedPreferences, app_preferences;

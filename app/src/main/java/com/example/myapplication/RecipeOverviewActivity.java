@@ -28,11 +28,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
+//Code mit Shared Preferences: https://www.youtube.com/watch?v=GlR7wqWEomU
+
 public class RecipeOverviewActivity extends AppCompatActivity {
 
     private TextView nameOfRecipe, descriprion, time, ingredients;
-    private Button cookNowButton;SharedPreferences app_preferences;
-    SharedPreferences.Editor editor;
+    private Button cookNowButton;
+    SharedPreferences app_preferences;
+
     int appTheme;
     int themeColor;
     int appColor;
@@ -49,7 +52,7 @@ public class RecipeOverviewActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseDatabase database;
     DatabaseReference reference;
-    private int favouriteStatus;
+    private int favouriteStatus = 1;
     private int loginStatus = 0;
 
 
@@ -87,9 +90,6 @@ public class RecipeOverviewActivity extends AppCompatActivity {
         reference = database.getReference("Lieblingsrezepte").child(mAuth.getCurrentUser().getUid());
 
         setupLayout();
-
-
-
         setupListener();
 
         nameString = getIntent().getExtras().get("Name").toString();
@@ -97,7 +97,6 @@ public class RecipeOverviewActivity extends AppCompatActivity {
         ingrediantsString = getIntent().getExtras().get("Zutaten").toString();
         instructionString = getIntent().getExtras().get("Kochanleitung").toString();
         cookingTimeString = getIntent().getExtras().get("Zubereitungszeit").toString();
-
 
         putInfo();
     }

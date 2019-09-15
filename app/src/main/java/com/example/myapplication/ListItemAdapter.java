@@ -14,6 +14,8 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+//Coder zu Adaptererstellung: https://www.youtube.com/watch?v=E6vE8fqQPTE
+
 public class ListItemAdapter extends ArrayAdapter <ListItem> {
 
 private Context mContext;

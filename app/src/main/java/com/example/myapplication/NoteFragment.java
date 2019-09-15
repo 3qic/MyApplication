@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
+//Code für Shared Preferences Basierend auf Code von https://www.youtube.com/watch?v=GlR7wqWEomU
 
 public class NoteFragment extends Fragment {
     EditText Notepad;

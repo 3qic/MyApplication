@@ -30,6 +30,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//Code für Suchfunktion: https://www.youtube.com/watch?v=b_tz8kbFUsU und https://www.youtube.com/watch?v=KOUyvCkwRss
+//Code für Shared Preferences: https://www.youtube.com/watch?v=GlR7wqWEomU
 
 public class SearchActivity extends AppCompatActivity {
 
