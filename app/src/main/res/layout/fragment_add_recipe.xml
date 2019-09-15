@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
-
-
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
 
         <TextView
             android:id="@+id/addrecipe_maintext"
@@ -21,6 +26,8 @@
             android:gravity="center"
             />
 
+
+
         <EditText
             android:layout_marginTop="20dp"
             android:layout_below="@+id/addrecipe_maintext"
@@ -28,7 +35,7 @@
             android:id="@+id/addrecipe_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="20dp"
             android:hint="@string/type_recipe_name"
             />
 
@@ -39,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:hint="@string/type_short_description"/>
+            android:hint="@string/type_short_description" />
 
         <EditText
             android:layout_below="@+id/addrecipe_description"
@@ -68,8 +75,10 @@
             android:padding="20dp"
             />
 
+
+
         <Button
-            android:layout_below="@+id/addrecipe_cookingTime"
+
             android:padding="20dp"
             android:id="@+id/saverecipe_button"
             android:layout_width="match_parent"
@@ -78,11 +87,9 @@
             android:backgroundTint="?colorPrimary"
             />
 
+</LinearLayout>
 
 
 
-
-
-
-</RelativeLayout>
+</ScrollView>
 

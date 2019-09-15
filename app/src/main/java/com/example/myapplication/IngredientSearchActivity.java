@@ -7,13 +7,17 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -33,6 +37,7 @@ public class IngredientSearchActivity extends AppCompatActivity {
     int appTheme;
     int themeColor;
     int appColor;
+
     private RecyclerView recyclerView;
     private EditText searchbar;
     FirebaseRecyclerAdapter<Recipe, MyRecyclerViewHolder> adapter;
@@ -72,9 +77,11 @@ public class IngredientSearchActivity extends AppCompatActivity {
                     search(s.toString());
                 }else{
                     search("");
+
                 }
             }
         });
+
 
 
 
@@ -82,21 +89,20 @@ public class IngredientSearchActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull MyRecyclerViewHolder holder, int position, @NonNull Recipe model) {
 
-
-
                 holder.name.setText(model.getName());
                 holder.desc.setText(model.getKurzbeschreibung());
                 holder.ingredts.setText(model.getZutaten());
                 holder.cookingTime.setText(model.getArbeitszeit());
                 holder.instruction.setText(model.getAnleitung());
-
-
+                holder.id.setText(model.getRezeptid());
 
                 final String name = holder.name.getText().toString();
                 final String description = holder.desc.getText().toString();
                 final String ingredients = holder.ingredts.getText().toString();
                 final String cookingTime = holder.cookingTime.getText().toString();
                 final String instruction = holder.instruction.getText().toString();
+                final String id = holder.id.getText().toString();
+
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -107,11 +113,11 @@ public class IngredientSearchActivity extends AppCompatActivity {
                         intent.putExtra("Zutaten", ingredients);
                         intent.putExtra("Zubereitungszeit", cookingTime);
                         intent.putExtra("Kochanleitung", instruction);
+                        intent.putExtra("RezeptID", id);
                         startActivity(intent);
                     }
                 });
             }
-
 
 
             @NonNull
@@ -125,6 +131,8 @@ public class IngredientSearchActivity extends AppCompatActivity {
 
         adapter.startListening();
         recyclerView.setAdapter(adapter);
+
+
     }
 
     private void search(String s) {
@@ -134,16 +142,15 @@ public class IngredientSearchActivity extends AppCompatActivity {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.hasChildren()){
+                if (dataSnapshot.hasChildren()) {
                     list.clear();
-                    for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
                         final Recipe recipe = ds.getValue(Recipe.class);
                         list.add(recipe);
                     }
-                    SearchBarAdapter myAdapter = new SearchBarAdapter(getApplicationContext(), list);
+                    SearchIngredientsAdapter myAdapter = new SearchIngredientsAdapter(getApplicationContext(), list);
                     recyclerView.setAdapter(myAdapter);
                     myAdapter.notifyDataSetChanged();
-
                 }
             }
 
@@ -167,5 +174,7 @@ public class IngredientSearchActivity extends AppCompatActivity {
                 .setQuery(databaseReference, Recipe.class)
                 .build();
     }
+
+
 
 }

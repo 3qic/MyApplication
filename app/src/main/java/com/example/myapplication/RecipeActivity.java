@@ -29,7 +29,7 @@ public class RecipeActivity extends AppCompatActivity {
     private String ingrediantsString;
     private String recipeidString;
 
-    private TextView textView, recipeName, recipeIngrediants, recipeInstruction;
+    private TextView textView, recipeIngrediants, recipeInstruction;
 
 
     private Button startStopButton;
@@ -64,7 +64,7 @@ public class RecipeActivity extends AppCompatActivity {
         nameString = getIntent().getExtras().get("Name").toString();
         ingrediantsString = getIntent().getExtras().get("Zutaten").toString();
         instructionString = getIntent().getExtras().get("Kochanleitung").toString();
-        recipeidString = getIntent().getExtras().get("RezeptID").toString();
+       
 
         setInfo();
 
@@ -77,7 +77,6 @@ public class RecipeActivity extends AppCompatActivity {
         editText = findViewById(R.id.input);
         recipeIngrediants = findViewById(R.id.recipe_mainView_ingrediants);
         recipeInstruction = findViewById(R.id.recipe_mainView_instruction);
-        recipeName = findViewById(R.id.recipe_mainView_title);
         recipeInstruction.setMovementMethod(new ScrollingMovementMethod());
         timerNotification = new TimerNotification(this);
         backToRecipe = new Intent(RecipeActivity.this, RecipeActivity.class);
@@ -139,7 +138,6 @@ public class RecipeActivity extends AppCompatActivity {
     public void setInfo(){
         recipeIngrediants.setText(ingrediantsString);
         recipeInstruction.setText(instructionString);
-        recipeName.setText(nameString);
     }
 
 

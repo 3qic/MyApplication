@@ -57,16 +57,6 @@
         android:layout_marginTop="120dp"
         android:padding="10dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recipe_mainView_title"
-        android:scrollbars = "vertical"
-        android:layout_below="@+id/input"
-        android:text="@string/name"
-        android:textSize="25dp"
-        android:padding="10dp"/>
-
 
     <TextView
         android:layout_width="match_parent"

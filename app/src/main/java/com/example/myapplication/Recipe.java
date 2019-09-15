@@ -2,12 +2,12 @@ package com.example.myapplication;
 
 public class Recipe {
 
-    private String Name;
-    private String Kurzbeschreibung;
-    private String Anleitung;
-    private String Zutaten;
-    private String Arbeitszeit;
-    private String Rezeptid;
+    private String name;
+    private String kurzbeschreibung;
+    private String anleitung;
+    private String zutaten;
+    private String arbeitszeit;
+    private String rezeptid;
 
 
     public Recipe(){
@@ -17,50 +17,50 @@ public class Recipe {
 
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getKurzbeschreibung() {
-        return Kurzbeschreibung;
+        return kurzbeschreibung;
     }
 
     public void setKurzbeschreibung(String kurzbeschreibung) {
-        Kurzbeschreibung = kurzbeschreibung;
+        this.kurzbeschreibung = kurzbeschreibung;
     }
 
     public String getAnleitung() {
-        return Anleitung;
+        return anleitung;
     }
 
     public void setAnleitung(String anleitung) {
-        Anleitung = anleitung;
+        this.anleitung = anleitung;
     }
 
     public String getZutaten() {
-        return Zutaten;
+        return zutaten;
     }
 
     public void setZutaten(String zutaten) {
-        Zutaten = zutaten;
+        this.zutaten = zutaten;
     }
 
     public String getArbeitszeit() {
-        return Arbeitszeit;
+        return arbeitszeit;
     }
 
     public void setArbeitszeit(String arbeitszeit) {
-        Arbeitszeit = arbeitszeit;
+        this.arbeitszeit = arbeitszeit;
     }
 
     public String getRezeptid() {
-        return Rezeptid;
+        return rezeptid;
     }
 
     public void setRezeptid(String rezeptid) {
-        this.Rezeptid = rezeptid;
+        this.rezeptid = rezeptid;
     }
 }

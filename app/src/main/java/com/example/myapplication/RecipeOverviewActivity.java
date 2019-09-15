@@ -48,7 +48,7 @@ public class RecipeOverviewActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseDatabase database;
     DatabaseReference reference;
-    private int favourite = 1;
+    private int favouriteStatus = 1;
     private int loginStatus = 0;
 
 
@@ -73,21 +73,22 @@ public class RecipeOverviewActivity extends AppCompatActivity {
         } else {
             setTheme(appTheme);
         }
-        setContentView(R.layout.recipe_overview_activity);
-        setupLayout();
-        setupListener();
 
+        setContentView(R.layout.recipe_overview_activity);
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("Lieblingsrezepte").child(mAuth.getCurrentUser().getUid());
 
+        setupLayout();
+        setupListener();
 
         nameString = getIntent().getExtras().get("Name").toString();
         descriptionString = getIntent().getExtras().get("Beschreibung").toString();
         ingrediantsString = getIntent().getExtras().get("Zutaten").toString();
         instructionString = getIntent().getExtras().get("Kochanleitung").toString();
         cookingTimeString = getIntent().getExtras().get("Zubereitungszeit").toString();
-        idString = getIntent().getExtras().get("RezeptID").toString();
+
+
         putInfo();
     }
 
@@ -130,29 +131,36 @@ public class RecipeOverviewActivity extends AppCompatActivity {
                 FirebaseUser currentUser = mAuth.getCurrentUser();
 
                 if (currentUser != null) {
-                    if (favourite == 1) {
+                    if (favouriteStatus == 1) {
 
-                        Lieblingsrezept lieblingsrezept = new Lieblingsrezept();
+                        Recipe recipe = new Recipe();
 
                         String id = idString;
                         String name = nameString;
-                        String desrc = descriptionString;
-                        lieblingsrezept.setName(name);
-                        lieblingsrezept.setRezeptid(id);
-                        lieblingsrezept.setKurzbeschreibung(desrc);
+                        String descr = descriptionString;
+                        String time = cookingTimeString;
+                        String instr = instructionString;
+                        String ingred = ingrediantsString;
 
-                        reference.push().setValue(lieblingsrezept);
+                        recipe.setName(name);
+                        recipe.setRezeptid(id);
+                        recipe.setKurzbeschreibung(descr);
+                        recipe.setAnleitung(instr);
+                        recipe.setArbeitszeit(time);
+                        recipe.setZutaten(ingred);
+
+                        reference.push().setValue(recipe);
 
                         image.setBackgroundResource(R.drawable.ic_favorite_full);
                        Toast.makeText(getApplicationContext(), "Favorit hinzugefügt", Toast.LENGTH_SHORT).show();
-                       favourite = 0;
+                       favouriteStatus = 0;
 
                     } else {
 
                         image.setBackgroundResource(R.drawable.ic_favorite_empty);
                         Toast.makeText(getApplicationContext(), "Von Favoriten entfernt", Toast.LENGTH_SHORT).show();
 
-                        favourite = 1;
+                        favouriteStatus = 1;
                     }
 
                 } else {
@@ -175,9 +183,6 @@ public class RecipeOverviewActivity extends AppCompatActivity {
     @Override
     public void onStart() {
 
-        // checken ob Rezept in der Favoritenliste ist
-
-
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
@@ -187,7 +192,23 @@ public class RecipeOverviewActivity extends AppCompatActivity {
 
         }
 
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
     }
+
 
 
 }
