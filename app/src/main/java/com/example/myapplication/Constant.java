@@ -18,5 +18,5 @@ public class Constant implements Serializable {
     public  static float fontSize = 1;
     public  static float fontSizeSmall = 0.75f;
     public  static float fontSizeMedium = 1f;
-    public  static float fontSizeLarge = 1.5f;
+
 }

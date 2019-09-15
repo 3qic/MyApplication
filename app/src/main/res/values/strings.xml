@@ -30,7 +30,6 @@
 
     <string name="preference_character_size">Schriftgröße</string>
     <string name="radio_group2_size_1">Klein</string>
-    <string name="radio_group2_size_2">Mittel</string>
     <string name="radio_group2_size_3">Groß</string>
 
     <string name="preference_layout">Design</string>

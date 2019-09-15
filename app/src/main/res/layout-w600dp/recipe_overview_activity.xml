@@ -9,7 +9,7 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/recipe_overview_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="20dp"
         android:background="?colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:textAlignment="center"/>
@@ -23,14 +23,14 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="5dp"
         android:background="?colorPrimary" />
 
     <TextView
         android:id="@+id/recipe_short_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"
+        android:padding="10dp"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -45,7 +45,7 @@
             android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="5dp"
             android:layout_gravity="start"/>
 
         <View
@@ -61,7 +61,6 @@
             android:background="@color/white"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-
             android:layout_gravity="right"
 
             />
@@ -87,9 +86,10 @@
 
     <Button
         android:id="@+id/cookNow"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:background="@drawable/round_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button_rounded"
         android:backgroundTint="?colorPrimary"
         android:text="@string/cookNowButton" />
 

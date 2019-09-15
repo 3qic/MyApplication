@@ -17,7 +17,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-
+//Code für Veränderung der Schriftgröße https://stackoverflow.com/questions/12704216/how-to-change-the-font-size-in-a-whole-application-programmatically-android
 //Code für Veränderung der Farbe mit Shared Preferences: https://www.youtube.com/watch?v=GlR7wqWEomU
 
 public class SettingsActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
@@ -38,7 +38,6 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
     private RadioGroup CharSizeSettings;
     private RadioButton CharSize1;
     private RadioButton CharSize2;
-    private RadioButton CharSize3;
     private RadioButton Color1;
     private RadioButton Color2;
     private RadioButton Color3;
@@ -93,16 +92,10 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
                     Constant.fontSize = Constant.fontSizeMedium;
                     editor.putFloat("fontSize", Constant.fontSize);
                     editor.commit();
-                    showToast("Schriftgröße 'mittel' gespeichert");
+                    showToast("Schriftgröße 'Groß' gespeichert");
                 }
 
-                else if (charSize == CharSize3.getId()){
-                    Constant.fontSize = Constant.fontSizeLarge;
-                    editor.putFloat("fontSize", Constant.fontSize);
-                    editor.commit();
-                    showToast("Schriftgröße 'groß' gespeichert");
 
-                }
 
                 if (color == Color1.getId()) {
                     Constant.color = 0xFFE6CD38;
@@ -175,7 +168,6 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
         buttonSave = findViewById(R.id.save_button);
         CharSize1 = findViewById(R.id.radio_button_charsize_1);
         CharSize2 = findViewById(R.id.radio_button_charsize_2);
-        CharSize3 = findViewById(R.id.radio_button_charsize_3);
         Color1 = findViewById(R.id.radio_button_color_1);
         Color2 = findViewById(R.id.radio_button_color_2);
         Color3 = findViewById(R.id.radio_button_color_3);
@@ -187,7 +179,7 @@ public class SettingsActivity extends AppCompatActivity implements RadioGroup.On
     public void onCheckedChanged(RadioGroup group, int checkedId) {
 
     }
-    //https://stackoverflow.com/questions/12704216/how-to-change-the-font-size-in-a-whole-application-programmatically-android
+
     private void changeFont(Configuration configuration, float scale){
         configuration.fontScale = scale;
         DisplayMetrics metrics = getResources().getDisplayMetrics();
