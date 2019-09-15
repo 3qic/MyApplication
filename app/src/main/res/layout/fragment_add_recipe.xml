@@ -14,7 +14,7 @@
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fügen Sie der Datenbank ein Rezept hinzu."
+            android:text="@string/add_recipe_head"
             android:textSize="20sp"
             android:backgroundTint="?colorPrimary"
             android:padding="10dp"
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:hint="Rezeptname eingeben"
+            android:hint="@string/type_recipe_name"
             />
 
         <EditText
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:hint="Kurzbeschreibung eingeben"/>
+            android:hint="@string/type_short_description"/>
 
         <EditText
             android:layout_below="@+id/addrecipe_description"
@@ -48,36 +48,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:hint="Kochanleitung eingeben"/>
+            android:hint="@string/type_manual"/>
 
         <EditText
             android:layout_below="@+id/addrecipe_instuctions"
-
             android:id="@+id/addrecipe_ingerdients"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Zutaten eingeben"
+            android:hint="@string/type_ingredient"
             android:padding="20dp"
             />
 
         <EditText
             android:layout_below="@+id/addrecipe_ingerdients"
-
             android:id="@+id/addrecipe_cookingTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Zutaten eingeben"
+            android:hint="@string/type_cooking_time"
             android:padding="20dp"
             />
 
         <Button
-            android:layout_below="@+id/addrecipe_ingerdients"
+            android:layout_below="@+id/addrecipe_cookingTime"
             android:padding="20dp"
-            android:layout_marginTop="20dp"
             android:id="@+id/saverecipe_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rezept Hochladen"
+            android:text="@string/recepe_upload"
             android:backgroundTint="?colorPrimary"
             />
 

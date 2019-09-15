@@ -1,4 +1,5 @@
 package com.example.myapplication;
+import android.app.NotificationManager;
 import android.content.Context;
 
 // https://www.youtube.com/watch?v=zmjfAcnosS0
@@ -167,6 +168,7 @@ public class RecipeActivity extends AppCompatActivity {
 
         output = hoursD + " : " + minutesD + " : " + secondsD;
         textView.setText(output);
+
     }
 
     private boolean isEditEmpty(EditText editText){
@@ -178,6 +180,5 @@ public class RecipeActivity extends AppCompatActivity {
         NotificationCompat.Builder nBuilder = timerNotification.getChannelNotification(title, i);
         timerNotification.getNotificationManager().notify(1, nBuilder.build());
     }
-
 
 }

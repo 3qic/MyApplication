@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Meine E-Mail Adresse:"
+            android:text="@string/my_email"
             android:textSize="20sp" />
 
     </android.support.v7.widget.CardView>
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text=" bla@gmx.de"
+            android:text="@string/example_email"
             android:textSize="20sp" />
 
     </android.support.v7.widget.CardView>
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Meine Nutzer-ID:"
+            android:text="@string/my_id"
             android:textSize="20sp" />
 
     </android.support.v7.widget.CardView>
@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text=" id"
+            android:text="@string/id"
             android:textSize="20sp"
             android:layout_marginLeft="2dp"/>
 
@@ -84,7 +84,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
         android:background="@drawable/button_rounded"
-        android:text="Passwort ändern"
+        android:text="@string/change_password"
         android:textColor="@color/white" />
 
     <Button
@@ -94,7 +94,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_rounded"
-        android:text="E-Mail Adresse ändern"
+        android:text="@string/change_email"
         android:textColor="@color/white" />
 
     <Button
@@ -103,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_rounded"
-        android:text="Ausloggen"
+        android:text="@string/logout"
         android:textColor="@color/white" />
 
 

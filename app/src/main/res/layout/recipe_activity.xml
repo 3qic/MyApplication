@@ -19,7 +19,7 @@
         android:id="@+id/input"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
-        android:hint="Kochuhr stellen"
+        android:hint="@string/set_timer"
         android:inputType="number"
         android:layout_toLeftOf="@+id/start"
         android:textColor="@color/white"/>
@@ -63,7 +63,7 @@
         android:id="@+id/recipe_mainView_title"
         android:scrollbars = "vertical"
         android:layout_below="@+id/input"
-        android:text="Name"
+        android:text="@string/name"
         android:textSize="25dp"
         android:padding="10dp"/>
 
@@ -74,7 +74,7 @@
         android:id="@+id/recipe_mainView_ingrediants"
         android:scrollbars = "vertical"
         android:layout_below="@+id/input"
-        android:text="Zutaten"
+        android:text="@string/ingredients"
         android:textSize="15dp"
         android:padding="10dp"
         />
@@ -89,7 +89,7 @@
         android:id="@+id/recipe_mainView_instruction"
         android:scrollbars = "vertical"
         android:layout_below="@+id/input"
-        android:text="Kochanleitung"
+        android:text="@string/cooking_manual"
         android:textSize="20dp"
         android:padding="10dp"
         android:lineSpacingExtra="2dp"

@@ -26,7 +26,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:gravity="center"
-        android:text="Artikel hinzufügen"
+        android:text="@string/add_article"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/Savebutton_Shopping_List" />
 
@@ -40,7 +40,7 @@
         android:layout_marginBottom="5dp"
         android:backgroundTint="?colorPrimary"
         android:gravity="center"
-        android:text="Liste speichern"
+        android:text="@string/save_list"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
@@ -50,7 +50,7 @@
         android:id="@+id/Enter_Item_Name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Artikel aufschreiben ..."
+        android:hint="@string/note_arcticle"
         android:imeOptions="actionDone"
         app:layout_constraintBottom_toTopOf="@id/Enter_Item_Amount"
         app:layout_constraintStart_toStartOf="parent" />
@@ -59,7 +59,7 @@
         android:id="@+id/Enter_Item_Amount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Anzahl ..."
+        android:hint="@string/number"
         android:imeOptions="actionDone"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@id/Add_Shopping_Item"

@@ -107,7 +107,6 @@ public class ShoppingListFragment extends Fragment {
         Gson gson = new Gson();
         String json = gson.toJson(itemList);
         editor.putString("item", json);
-        editor.commit();
     }
 
 }

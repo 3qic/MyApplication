@@ -14,7 +14,7 @@
 
     <EditText
         android:id="@+id/register_user_email"
-        android:hint="E-Mail Adresse"
+        android:hint="@string/e_mail_adresse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
@@ -24,7 +24,7 @@
 
     <EditText
         android:id="@+id/register_user_password"
-        android:hint="Passwort (mind. 6 Zeichen)"
+        android:hint="@string/passwort_min6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
@@ -34,7 +34,7 @@
 
     <EditText
         android:id="@+id/register_user_password_confirm"
-        android:hint="Passwort wiederholen"
+        android:hint="@string/repeat_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
@@ -48,7 +48,7 @@
         android:id="@+id/register_profile_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Profil erstellen"
+        android:text="@string/create_profile"
         android:textColor="@color/white"
         android:background="@drawable/button_rounded"
 

@@ -12,6 +12,10 @@
     <string name="save_button">Speichern</string>
     <string name="add_button">+</string>
     <string name="standard">00:00</string>
+    <string name ="random_recipe">Zufälliges Rezpet</string>
+    <string name="info_text">Info: weiß noch nicht was hier stehen soll</string>
+    <string name="search_ingrediants">Rezepte nach Zutaten suchen</string>
+    <string name="search_promts">Rezepte nach Stichworten suchen</string>
 
     <string name="foodsharing_button">food sharing</string>
 
@@ -39,6 +43,45 @@
     <string name="start">Start</string>
     <string name="hint">How many Minutes?</string>
     <string name="stop">Stop</string>
+    <string name="e_mail_adresse">E-Mail Adresse</string>
+    <string name="passwort_min6">Passwort (mind. 6 Zeichen)</string>
+    <string name="repeat_password">Passwort wiederholen</string>
+    <string name="create_profile">Profil erstellen</string>
+    <string name="save">Speichern</string>
+    <string name="recipeze">Recipeze</string>
+    <string name="menu_text">Menüpunkte auswählen</string>
+    <string name="add_recipe_head">Fügen Sie der Datenbank ein Rezept hinzu.</string>
+    <string name="type_recipe_name">Rezeptname eingeben</string>
+    <string name="type_short_description">Kurzbeschreibung eingeben</string>
+    <string name="type_manual">Kochanleitung eingeben</string>
+    <string name="type_ingredient">Zutaten eingeben</string>
+    <string name="type_cooking_time">Kochzeit eingeben</string>
+    <string name="recepe_upload">Rezept Hochladen</string>
+    <string name="new_password6">Neues Passwort eingeben (mind. 6 Zeichen)</string>
+    <string name="repeat_new_password">Neues Passwort bestätigen</string>
+    <string name="make_notes">Notizen schreiben ...</string>
+    <string name="my_email">Meine E-Mail Adresse:</string>
+    <string name="example_email">bla@gmx.de</string>
+    <string name="my_id">Meine Nutzer-ID:</string>
+    <string name="id">id</string>
+    <string name="change_password">Passwort ändern</string>
+    <string name="change_email">E-Mail Adresse ändern</string>
+    <string name="logout">Ausloggen</string>
+    <string name="number">Anzahl ...</string>
+    <string name="note_arcticle">Artikel aufschreiben ...</string>
+    <string name="save_list">Liste speichern</string>
+    <string name="add_article">Artikel hinzufügen</string>
+    <string name="search">Suche</string>
+    <string name="e_mail_adress">E-Mail Adresse</string>
+    <string name="password">Passwort</string>
+    <string name="log_in">Anmelden</string>
+    <string name="register">Registrieren</string>
+    <string name="set_timer">Kochuhr stellen</string>
+    <string name="name">Name</string>
+    <string name="cooking_manual">Kochanleitung</string>
+    <string name="ingredients">Zutaten</string>
+    <string name="short_discription">Kurzbeschreibung</string>
+    <string name="quantity">Anzahl</string>
 
 
 </resources>
